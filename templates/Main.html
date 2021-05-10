@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "icon" href = "nothing">
+        <link href = "{% static 'Style.css' %}" rel = "stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+        <title>Pet Shop</title>
+    </head>
+
+    <body>
+
+        <div class = "header_upper">
+            <p style = "display: block;margin: 2vw;" class = "button-text">О компании</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Доставка</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Оплата</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Адреса магазинов</p>
+        </div>
+
+        <div class = "header_lower" style = "display: flex;">
+            <div class = "header_resizable">
+            </div>
+            <div style = "position:relative;">
+            <div style = "background-image: linear-gradient(rgb(3, 210, 251),rgb(11, 122, 157)); width: 15vw; height: 15vw; position:absolute; left: 0vw; z-index: 2;">
+                <div style = "background-image: url('/static/Resourses/Logo.svg'); width: 15vw; height: 15vw; position:absolute; z-index: 2;">
+                </div>
+            </div>
+            <div style = "background-color: rgb(11, 122, 157); width:20vw; height: 8vw; position: absolute; left: 15vw; top: 2vw; z-index: 1; text-align: center;"><p style="margin-top:1.5vw; margin-right: 0.3vw; font-size: 3.7vw; color: white; white-space: nowrap; ">PET SHOP</p></div>
+            <div style = "background-color: rgb(3, 210, 251); width:5vw; height: 4vw; position: absolute; left: 33vw; top: 4vw; z-index: 1.9;"></div>
+            <div style = "background-color: rgb(11, 122, 157); width:50vw; height: 6vw; position: absolute; left: 37vw; top: 3vw; z-index: 1.8; text-align: center;"><p style="margin:0.7vw; font-size: 3.4vw; color: white; font-weight: normal;">Для всех ваших питомцев!</p></div>
+            <div style = "background-color: rgb(3, 210, 251); width:44vw; height: 3vw; position: absolute; left: 40vw; top: 8vw; z-index: -20; text-align: center;"></div>
+            <div style = "background-color: rgb(11, 122, 157); width:48vw; height: 5vw; position: absolute; left: 38vw; top: 10vw; z-index: 1; text-align: center;"></div>
+            <form action="{% url 'search' %}" method="get">
+              <input name="search" style="position: absolute; left: 38.85vw; top: 11vw; width: 46vw; height: 3vw; font-size: 2vw; z-index: 2; border: 0vw; " type="text" id="Find something" placeholder="Что-то найти?">
+            </form>
+
+        </div>
+        </div>
+
+        <div class = "header_underlower">
+
+        </div>
+
+        <div class = "main">
+            <div style = "position:absolute; top: 24vw;">
+                <div style = "background-color: rgb(3, 210, 251); width:86vw; height: 3vw; position: absolute; left: 2vw; top: 1vw;"></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 0vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Каталог товаров:</p></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 23vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Акции</p></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 46vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Корма</p></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 69vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Аксессуары</p></div>
+            </div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div class = "footer">
+            <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> Контакты </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+
+            </div>
+            <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 3.5vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">FAQ</p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
