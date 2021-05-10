@@ -1,0 +1,11 @@
+{% extends 'Main.html' %}
+
+
+{% block content %}
+  <div style = "position:absolute; top: 50vw;">
+      <h1>Hello Django</h1><br>
+      {% for product in products %}
+          <p>{{product.name | upper}}</p>
+      {% endfor %}
+  </div>
+{% endblock %}
