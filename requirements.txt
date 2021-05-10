@@ -1,5 +1,4 @@
 aiofiles==0.6.0
-apt-clone==0.2.1
 apturl==0.5.2
 asgi-csrf==0.8
 asgiref==3.3.4
