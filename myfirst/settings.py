@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['petshop01.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'grappelli',
     'petshop.apps.PetshopConfig',
     'django.contrib.admin',
     'django.contrib.auth',
