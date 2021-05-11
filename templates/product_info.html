@@ -2,22 +2,77 @@
 
 {% block stuff %} {% endblock %}
   {% block content %}
-    <div class = "container" style = "position:absolute; top: 25vw;">
-      <div class="row">
-        <div class="col">
-          <div class="row">
-            <img src ="{{products.0.pic_url}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+  <div  style = "position:absolute; top: 24vw;">
+
+              <div style="background-color: rgb(3, 210, 251); width:90vw; height: 4vw; position: absolute; left: 0vw; top: 6.5vw; z-index: 0;"></div>
+              <div style="background-color: rgb(11, 122, 157); width:40vw; height: 6vw; position: absolute; left: 5vw; top: 2vw; text-align: center; font-size: 3.5vw; color: white; box-shadow: 0 0 1vw rgba(0,0,0,0.5); z-index: 1;"><p style = "margin-top:0.4vw"> {{ products.0.name }}</p></div>
+
+
+              <div style="background-color: rgb(11, 122, 157); width:35vw; height: 40vw; display: block; margin: 2vw; z-index: 1; position: absolute; top: 7.5vw; left: 5.5vw">
+                  <img src ="{{products.0.pic_url}}" style = " width: 33vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+                  <a  href = "asd.html"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 6vw; top: 2vw; zoom: 130%;"><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 6vw; top: 0.8vw;">Купить</p></div></a>
+              </div>
+              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 13vw; left: 46vw"></div>
+              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 14vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Наличие: да</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 21vw; left: 46vw"></div>
+              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 29vw; left: 46vw"></div>
+              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 30vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Цена: 1500 тенге</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 37vw; left: 46vw"></div>
+              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 38vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Рейтинг:</p></div>
+
+              <div id = "1_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 63vw;"></div>
+              <div id = "2_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 67.5vw;"></div>
+              <div id = "3_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 72vw;"></div>
+              <div id = "4_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 76.5vw;"></div>
+              <div id = "5_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 81vw;"></div>
+
+
+
+
+              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 45vw; left: 46vw"></div>
+
+
+
+              <script>
+                  var rate = {{ products.0.rating }};
+
+                  function Rate() {
+                      if (rate >= 1){
+                          var Rate_v_1 = document.getElementById('1_Rate');
+                          Rate_v_1.style.backgroundColor = "rgb(12, 34, 84)";
+                      };
+                      if (rate >= 2){
+                          var Rate_v_2 = document.getElementById('2_Rate');
+                          Rate_v_2.style.backgroundColor = "rgb(12, 34, 84)";
+                      };
+                      if (rate >= 3){
+                          var Rate_v_3 = document.getElementById('3_Rate');
+                          Rate_v_3.style.backgroundColor = "rgb(12, 34, 84)";
+                      };
+                      if (rate >= 4){
+                          var Rate_v_4 = document.getElementById('4_Rate');
+                          Rate_v_4.style.backgroundColor = "rgb(12, 34, 84)";
+                      };
+                      if (rate >= 5){
+                          var Rate_v_5 = document.getElementById('5_Rate');
+                          Rate_v_5.style.backgroundColor = "rgb(12, 34, 84)";
+                      }
+                  }
+                  document.onload = Rate();
+              </script>
+
+
+
+
+              <div style="background-color: rgb(3, 210, 251); width:90vw; height: 4vw; position: absolute; left: 0vw; top: 66.5vw; z-index: 0;"></div>
+              <div style="background-color: rgb(11, 122, 157); width:40vw; height: 6vw; position: absolute; left: 5vw; top: 62vw; text-align: center; font-size: 3.5vw; color: white; box-shadow: 0 0 1vw rgba(0,0,0,0.5); z-index: 1;"><p style = "margin-top:0.4vw"> Описание продукта</p></div>
+              <div style = "width: 90vw; position: absolute;  top: 70vw;"><p style = "padding: 4vw; margin-top:0.4vw;  font-size: 2vw; color: rgb(12, 34, 84);">
+                  {{ products.0.description }}
+              </p></div>
+
+              <div style="background-color: rgb(3, 210, 251); width:90vw; height: 4vw; position: absolute; left: 0vw; top: 120.5vw; z-index: 0;"></div>
+              <div style="background-color: rgb(11, 122, 157); width:40vw; height: 6vw; position: absolute; left: 5vw; top: 116vw; text-align: center; font-size: 3.5vw; color: white; box-shadow: 0 0 1vw rgba(0,0,0,0.5); z-index: 1;"><p style = "margin-top:0.4vw"> Комментарии</p></div>
+
           </div>
-          <div class="row">
-            <p style="font-size: 2.5vw; color: black;  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">Name: {{ products.0.name }}</p>
-          </div>
-          <div class="row">
-            <p style="font-size: 1.9vw; color: black;  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">rating: {{ products.0.rating }}</p>
-          </div>
-        </div>
-        <div class="col">
-          <p style="font-size: 2vw; color: black;  font-weight: 0;">product description: {{ products.0.description }}</p>
-        </div>
-      </div>
-    </div>
   {% endblock %}
