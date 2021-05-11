@@ -30,7 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definiion
 
 INSTALLED_APPS = [
     'petshop.apps.PetshopConfig',
