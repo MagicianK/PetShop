@@ -1,0 +1,23 @@
+{% extends 'Main.html' %}
+
+{% block stuff %} {% endblock %}
+  {% block content %}
+    <div class = "container" style = "position:absolute; top: 25vw;">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <img src ="{{products.0.pic_url}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+          </div>
+          <div class="row">
+            <p style="font-size: 2.5vw; color: black;  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">Name: {{ products.0.name }}</p>
+          </div>
+          <div class="row">
+            <p style="font-size: 1.9vw; color: black;  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">rating: {{ products.0.rating }}</p>
+          </div>
+        </div>
+        <div class="col">
+          <p style="font-size: 2vw; color: black;  font-weight: 0;">description: {{ products.0.description }}</p>
+        </div>
+      </div>
+    </div>
+  {% endblock %}

@@ -1,0 +1,126 @@
+@media all and (min-width: 1920px) {
+
+    body{zoom: 80%;}
+    .header_resizable{zoom: 320%;}
+}
+@media all and (min-width: 2240px) {
+
+    body{zoom: 70%;}
+    .header_resizable{zoom: 460%;}
+}
+@media all and (min-width: 2560px) {
+
+    body{zoom: 60%;}
+    .header_resizable{zoom: 660%;}
+}
+@media all and (min-width: 3840px) {
+
+    body{zoom: 50%;}
+    .header_resizable{zoom: 1000%;}
+}
+
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
+
+body {
+  
+    background-image:url("Resourses/Background 3.jpg");
+    
+    margin: 0px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: bold;
+  } 
+.header_upper{
+    width: 100%;
+    height: 6vw;
+    position:absolute;
+    top: 0vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(35, 45, 81);
+    font-size: 2vw;
+    z-index: 1;
+    transition: background-color 0.5s;
+}
+.header_upper:hover{
+        background-color:rgb(11, 122, 157);
+}
+
+.header_lower{
+    width: 100%;
+    height: 18vw;
+    position:absolute;
+    top: 6vw;
+    background-color: #a2d3da;
+    z-index: 1;
+}
+.header_underlower{
+    width: 100%;
+    height: 2.5vw;
+    position:absolute;
+    top: 23.5vw;
+    background-color: rgb(11, 122, 157);
+    z-index:-1;
+}
+.header_resizable{
+    width: 6vw;
+}
+.footer{
+    width: 100%;
+    height: 13vw;
+    position:absolute;
+    top: 200vw;
+    background-color: rgb(8, 86, 110);
+    z-index:1;
+}
+
+.main{
+    background-color: white;
+    width: 90vw;
+    height: 200vw;
+    margin: auto;
+    box-shadow: 0 0 2vw rgba(0,0,0,0.5);
+    z-index: 0;
+}
+a{
+    text-decoration: none !important;
+}
+
+.button{
+    transition: background-color 0.1s, box-shadow 0.2s; 
+    
+}
+.button:hover{
+    background-color: white !important;
+    color:rgb(35, 45, 81) !important;
+    box-shadow: 0 0 6vw rgb(14, 255, 235) !important;
+   
+}
+
+
+.button-calm{
+    transition: background-color 0.1s, box-shadow 0.2s; 
+    
+}
+.button-calm:hover{
+    background-color: rgb(3, 210, 251) !important;
+    color:rgb(35, 45, 81) !important;
+    
+   
+}
+
+
+.button-text{
+    transition: text-shadow, color .2s; 
+    text-shadow: 0 0 1vw rgba(0, 0, 0, 0.0);
+}
+.button-text:hover{
+    text-shadow: 0 0 2vw rgb(14, 255, 235) !important;
+    color: white;
+    
+}

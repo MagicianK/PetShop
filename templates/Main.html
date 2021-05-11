@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "icon" href = "nothing">
+        <link rel = "stylesheet"  href = "{% static 'Style.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+        <title>Pet Shop</title>
+    </head>
+
+    <body>
+
+        <div class = "header_upper">
+            <p style = "display: block;margin: 2vw;" class = "button-text">О компании</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Доставка</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Оплата</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Адреса магазинов</p>
+        </div>
+
+        <div class = "header_lower" style = "display: flex;">
+            <div class = "header_resizable">
+            </div>
+            <div style = "position:relative;">
+            <div style = "background-image: linear-gradient(rgb(3, 210, 251),rgb(11, 122, 157)); width: 15vw; height: 15vw; position:absolute; left: 0vw; z-index: 2;">
+              <a href = "{% url 'Main'%}">  <div style = "background-image: url(/static/Resourses/Logo.svg); width: 15vw; height: 15vw; position:absolute; z-index: 2;">
+              </div> </a>
+            </div>
+            <div style = "background-color: rgb(11, 122, 157); width:20vw; height: 8vw; position: absolute; left: 15vw; top: 2vw; z-index: 1; text-align: center;"><p style="margin-top:1.5vw; margin-right: 0.3vw; font-size: 3.7vw; color: white; white-space: nowrap; font-weight: bold;">PET SHOP</p></div>
+            <div style = "background-color: rgb(3, 210, 251); width:5vw; height: 4vw; position: absolute; left: 33vw; top: 4vw; z-index: 1.9;"></div>
+            <div style = "background-color: rgb(11, 122, 157); width:50vw; height: 6vw; position: absolute; left: 37vw; top: 3vw; z-index: 1.8; text-align: center;"><p style="margin:0.5vw; font-size: 3.4vw; color: white; font-weight: normal;">Для всех ваших питомцев!</p></div>
+            <div style = "background-color: rgb(3, 210, 251); width:44vw; height: 3vw; position: absolute; left: 40vw; top: 8vw; z-index: -20; text-align: center;"></div>
+            <div style = "background-color: rgb(11, 122, 157); width:48vw; height: 5vw; position: absolute; left: 38vw; top: 10vw; z-index: 1; text-align: center;"></div>
+            <form action="{% url 'search' %}" method="get">
+              <input name="search" style="position: absolute; left: 38.85vw; top: 11vw; width: 46vw; height: 3vw; font-size: 2vw; z-index: 2; border: 0vw; " type="text" id="Find something" placeholder="Что-то найти?">
+            </form>
+            </div>
+        </div>
+
+        <div class = "header_underlower">
+
+        </div>
+        <div class = "main">
+          {% block stuff %}
+            <div  style = "position:absolute; top: 24vw;">
+                <div style = "background-color: rgb(3, 210, 251); width:86vw; height: 3vw; position: absolute; left: 2vw; top: 1vw;"></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 0vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Каталог товаров:</p></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 23vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Акции</p></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 46vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Корма</p></div>
+                <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 69vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Аксессуары</p></div>
+                <div style="background-color: rgb(3, 210, 251); width:86vw; height: 4vw; position: absolute; left: 2vw; top: 13.5vw;"></div>
+                <div style="background-color: rgb(11, 122, 157); width:94vw;  position: absolute; left: -2vw; top: 15.5vw; border: 2vw solid rgb(11, 122, 157); padding:-5vw; z-index: 2; box-shadow: 0 0 2vw rgba(0,0,0,0.5);">
+                <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item">
+                        <img src="/static/Resourses/maxresdefault.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="/static/Resourses/maxresdefault.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item active">
+                        <img src="/static/Resourses/maxresdefault.jpg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+                </div>
+                <div style="background-color: rgb(3, 210, 251); width:86vw; height: 4vw; position:absolute; left: 2vw; top: 68.5vw; z-index: 1;"></div>
+                <div style="background-color: rgb(11, 122, 157); width:30vw; height: 6vw; position:absolute; left: 1vw; top: 71.5vw; z-index: 2; box-shadow: 0 0 2vw rgba(0,0,0,0.5);"><p style="margin-top:0.9vw; margin-left: 5vw; font-size: 3vw; color: white; white-space: nowrap; font-weight: bold;">Рекомендуем</p></div>
+                <div style="background-color: rgb(3, 210, 251); width:90vw; height: 3vw; position:absolute; left: 0vw; top: 76.5vw; z-index: 1;"></div>
+                <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 76.5vw">
+                    <div class ="button-calm" style="background-color: rgb(11, 122, 157); width:25vw; height: 38vw; display: block; margin: 2vw; z-index: 1;">
+                        <img src ="{{products.0.pic_url}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+                        <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ products.0.name }}</p>
+                        <a  href = "{% url 'buy' products.0.id %}"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw; "><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 8.5vw; top: 0.8vw;">Купить</p></div></a>
+                        <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -4.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{products.0.price}}</p></div>
+                    </div>
+                    <div class ="button-calm" style="background-color: rgb(11, 122, 157); width:25vw; height: 38vw; display: block; margin: 2vw; z-index: 1;">
+                        <img src ="{{products.1.pic_url}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+                        <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ products.1.name }}</p>
+                        <a  href = "{% url 'buy' products.1.id %}"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw;"><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 8.5vw; top: 0.8vw;">Купить</p></div></a>
+                        <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -4.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{products.1.price}}</p></div>
+                    </div>
+                    <div class ="button-calm" style="background-color: rgb(11, 122, 157); width:25vw; height: 38vw; display: block; margin: 2vw; z-index: 1;">
+                        <img src ="{{products.2.pic_url}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+                        <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ products.2.name }}</p>
+                        <a  href = "{% url 'buy' products.2.id %}"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw;"><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 8.5vw; top: 0.8vw;">Купить</p></div></a>
+                        <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -4.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{products.2.price}}</p></div>
+                    </div>
+
+                </div>
+                {% endblock %}
+                {% block content %}
+                {% endblock %}
+            </div>
+
+        </div>
+
+        <div class = "footer">
+            <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> Контакты </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+
+            </div>
+            <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 3.5vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">FAQ</p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
