@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.views import View
 from django.db.models import Q
 from .models import product
-
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 def update_rating():
     products = product.objects.order_by('-rating')
@@ -24,3 +25,8 @@ def search(request):
         return render(request, 'product_info.html', {'products' : matches})
     else:
         return render(request, 'searchNotFound.html')
+
+
+def register(response):
+    form = UserCreationForm()
+    return render(response, 'registration/register.html', {"form": form})

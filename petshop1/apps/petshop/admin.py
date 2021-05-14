@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 def createUser(request):
     user = User.objects.create_user('myusername', 'myemail', 'mypassword'),
-    return render(request, 'registration/signup.html')
+    return render(request, 'registration/register.html')
 
 
 admin.site.register(product)

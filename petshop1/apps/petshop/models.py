@@ -12,14 +12,3 @@ class product(models.Model):
         verbose_name_plural = "products"
     def __str__(self):
         return self.name
-
-class customer(models.Model):
-    name = models.CharField('customer name', max_length = 50)
-    phone = models.CharField('phone number', max_length = 50)
-    email = models.EmailField('customer email', max_length = 50)
-    password = models.CharField('password', max_length = 50)
-
-    class Meta:
-        verbose_name_plural = "customers"
-    def __str__(self):
-        return self.name
