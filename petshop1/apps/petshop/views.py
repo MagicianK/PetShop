@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.db.models import Q
 from .models import product
@@ -28,5 +28,12 @@ def search(request):
 
 
 def register(response):
-    form = UserCreationForm()
+    if response.method == 'POST':
+        form = UserCreationForm(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+
     return render(response, 'registration/register.html', {"form": form})

@@ -6,6 +6,7 @@
 </head>
 <body>
 <form method="post">
+    {% csrf_token %}
     {{ form }}
     <br>
     <button type="submit">Submit</button>
