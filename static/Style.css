@@ -124,12 +124,3 @@ a{
     color: white;
     
 }
-.linkk{
-    text-decoration: none !important;
-    color: white;
-}
-.linkk:hover{
-    color: white;
-    text-decoration:none;
-    cursor:pointer;
-}
