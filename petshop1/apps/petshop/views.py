@@ -3,20 +3,23 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.db.models import Q
 from .models import product
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterForm
+
 
 def update_rating():
     products = product.objects.order_by('-rating')
     return products
 
+
 def index(request): #this is what user first will see at the beginning
     products = update_rating()
     return render(request, 'Main.html', {'products' : products})
 
+
 def to_product(request, id): #this function will return id of product to product_info.html after user clicked button 'buy'
     products = product.objects.filter(Q(id = id))
     return render(request, 'product_info.html', {'products' : products})
+
 
 def search(request):
     search_result = request.GET.get('search')
@@ -29,11 +32,11 @@ def search(request):
 
 def register(response):
     if response.method == 'POST':
-        form = UserCreationForm(response.POST)
+        form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
             return redirect('/')
     else:
-        form = UserCreationForm()
+        form = RegisterForm()
 
     return render(response, 'registration/register.html', {"form": form})

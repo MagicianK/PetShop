@@ -1,15 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <br>
-    <button type="submit">Submit</button>
-</form>
-</body>
+<html>
+    <head>
+        <link rel = "icon" href = "nothing">
+        <link rel = "stylesheet" type = "text/css" href = "Style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+        <title>Sign up - Pet shop</title>
+        <style>
+            .input{
+                transition: box-shadow .5s, color .5s;
+                text-align: center;
+            }
+            .input:hover{
+                box-shadow: 0 0 2vw rgb(109, 109, 109) !important;
+                color: rgb(0, 34, 128);
+                z-index: 10;
+            }
+            .input:focus{
+                outline: none;
+            }
+            .button-text{
+                transition: text-shadow, color .2s;
+                text-shadow: 0 0 1vw rgba(0, 0, 0, 0.0);
+            }
+            .button-text:hover{
+                text-shadow: 0 0 2vw rgb(14, 255, 235) !important;
+                color: white;
+
+            }
+            #id_username, #id_email, #id_password1, #id_password2 {
+                text-align: center;
+                width: 74vw;
+                height: 5vh;
+                position: relative;
+                top: 3vh;
+                left: 3vw;
+                border: 0.3vh solid rgb(148, 148, 148);
+                font-size: 2.5vh;
+            }
+        </style>
+    </head>
+
+    <body style = "display: flex; justify-content: center; align-items: center; height: 70vh;" data-new-gr-c-s-check-loaded="14.1012.0" data-gr-ext-installed="">
+
+
+
+        <div style = "background-color: white; width: 80vw; height: 54vh; display: block; box-shadow: 0 0 5vw rgba(0,0,0,0.2);">
+            <form method="POST">{% csrf_token %}
+
+            <td>
+                <div class="username">
+                    {{ form.username }}
+                </div>
+            </td>
+
+             <p style = "position: relative; top: 4.1vh; left: 3vw;  font-size: 1.5vh; margin-right: 7vw; text-align: center; color: rgb(35, 45, 81)">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+
+            <td>
+                <div class="email">
+                    {{ form.email }}
+                </div>
+            </td><br>
+
+
+            <td>
+                <div class="password1">
+                    {{ form.password1 }}
+                </div>
+            </td>
+
+            <p style = "position: relative; top: 5vh; left: 3vw;  font-size: 1.5vh; margin-right: 7vw; text-align: center; color: rgb(35, 45, 81)">Your password can’t be too similar to your other personal information. <br> Your password must contain at least 8 characters. <br> Your password can’t be a commonly used password. <br> Your password can’t be entirely numeric.</p>
+
+            <td>
+                <div class="password2">
+                    {{ form.password2 }}
+                </div>
+            </td>
+
+
+            <p style = "position: relative; top: 6vh; left: 3vw;  font-size: 1.5vh; margin-right: 7vw; text-align: center; color: rgb(35, 45, 81)">Enter the same password as before, for verification.</p>
+
+
+            <input class="button-text" type="Submit" value="Submit" style = "width: 74vw; height: 5vh; position: relative; top: 6vh; left: 3vw; border: 0vh solid white; background-color: rgb(8, 86, 110); color: white; font-size: 2.5vh;">
+            </form>
+
+
+
+
+        </div>
+    <script>
+        var username = document.getElementById('id_username');
+        username.setAttribute('placeholder', 'Username');
+        username.setAttribute('class', 'input');
+        var email = document.getElementById('id_email');
+        email.setAttribute('placeholder', 'Email');
+        email.setAttribute('class', 'input');
+        var pass1 = document.getElementById('id_password1');
+        pass1.setAttribute('placeholder', 'Password');
+        pass1.setAttribute('class', 'input');
+        var pass2 = document.getElementById('id_password2');
+        pass2.setAttribute('placeholder', 'Password confirmation');
+        pass2.setAttribute('class', 'input');
+    </script>
+
+
+
+    </body>
+
 </html>
