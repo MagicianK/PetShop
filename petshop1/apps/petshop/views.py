@@ -4,6 +4,7 @@ from django.views import View
 from django.db.models import Q
 from .models import product
 from .forms import RegisterForm
+from django.contrib import messages
 
 
 def update_rating():
@@ -30,13 +31,15 @@ def search(request):
         return render(request, 'searchNotFound.html')
 
 
-def register(response):
-    if response.method == 'POST':
-        form = RegisterForm(response.POST)
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/')
     else:
         form = RegisterForm()
 
-    return render(response, 'registration/register.html', {"form": form})
+    return render(request, 'registration/register.html', {"form": form})
+
+"""def login(request):"""

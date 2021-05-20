@@ -46,7 +46,7 @@
 
 
 
-        <div style = "background-color: white; width: 80vw; height: 54vh; display: block; box-shadow: 0 0 5vw rgba(0,0,0,0.2);">
+        <div style = "background-color: white; width: 80vw; height: 70vh; display: block; box-shadow: 0 0 5vw rgba(0,0,0,0.2);">
             <form method="POST">{% csrf_token %}
 
             <td>
@@ -84,7 +84,12 @@
 
             <input class="button-text" type="Submit" value="Submit" style = "width: 74vw; height: 5vh; position: relative; top: 6vh; left: 3vw; border: 0vh solid white; background-color: rgb(8, 86, 110); color: white; font-size: 2.5vh;">
             </form>
-
+            <div class="causederror" style = "position: relative; top: 6vh; left: 3vw;  font-size: 1.5vh; margin-right: 7vw; text-align: center; padding: 5px;">
+                {{ form.errors }}
+            </div>
+            <div>
+                <p style = "position: relative; top: 6vh; left: 3vw;  font-size: 1.5vh; margin-right: 7vw; text-align: center; padding: 5px;"><a href="{% url 'login' %}">Already has an account?</a></p>
+            </div>
 
 
 
