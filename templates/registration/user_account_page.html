@@ -1,0 +1,49 @@
+{% extends 'Main.html' %}
+
+{% block stuff %} {% endblock %}
+{% block content %}
+    <div  style = "position:absolute; top: 24vw;">
+        <div style="background-color: rgb(11, 122, 157); width:32vw; height: 32vw; display: block; margin: 2vw; z-index: 1; position: absolute; top: 1.5vw; left: 1.5vw">
+            <img src ="https://sun9-19.userapi.com/impg/XbtglT2F1Fd9TzPfADUA8N6M2VF9zv-N9OwyVg/OYrfNutwS1M.jpg?size=2000x2000&quality=96&sign=e76db4d30b878acee8198e28527060b9&type=album" style = " width: 30vw; height: 30vw; position: relative; top: 1vw; left: 1vw;">
+        </div>
+        <div style = "background-color: rgb(198, 219, 236); width:47.3vw; height: 0.45vw; position: absolute; border-radius: 0.3vw; top: 5vw; left: 39vw"></div>
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 5vw; left: 39vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Имя:</p></div>
+        <div style = "background-color: rgb(198, 219, 236); width:0.45vw; height: 5vw; position: absolute; border-radius: 0.3vw; top: 6.2vw; left: 56vw"></div>
+
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 5vw; left: 57vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">{{ user.get_username }}</p></div>
+
+        <div style = "background-color: rgb(198, 219, 236); width:47.3vw; height: 0.45vw; position: absolute; border-radius: 0.3vw; top: 12vw; left: 39vw"></div>
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 12vw; left: 39vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Фамилия:</p></div>
+        <div style = "background-color: rgb(198, 219, 236); width:0.45vw; height: 5vw; position: absolute; border-radius: 0.3vw; top: 13.2vw; left: 56vw"></div>
+
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 12vw; left: 57vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Махмутов</p></div>
+
+        <div style = "background-color: rgb(198, 219, 236); width:47.3vw; height: 0.45vw; position: absolute; border-radius: 0.3vw; top: 19vw; left: 39vw"></div>
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 19vw; left: 39vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Телефон:</p></div>
+        <div style = "background-color: rgb(198, 219, 236); width:0.45vw; height: 5vw; position: absolute; border-radius: 0.3vw; top: 20.2vw; left: 56vw"></div>
+
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 19vw; left: 57vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">+7 705 10 15 090</p></div>
+
+        <div style = "background-color: rgb(198, 219, 236); width:47.3vw; height: 0.45vw; position: absolute; border-radius: 0.3vw; top: 26vw; left: 39vw"></div>
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 26vw; left: 39vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Email:</p></div>
+        <div style = "background-color: rgb(198, 219, 236); width:0.45vw; height: 5vw; position: absolute; border-radius: 0.3vw; top: 27.2vw; left: 56vw"></div>
+
+        <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 26vw; left: 57vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Sintelaris@gmail.com</p></div>
+
+        <div style = "background-color: rgb(198, 219, 236); width:47.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 33vw; left: 39vw"></div>
+
+
+        <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 37vw">
+            <a href = "https://vk.com/"><div class ="button" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Корзина</p></div></a>
+            <a href = "https://vk.com/"><div class ="button" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Текущие заказы</p></div></a>
+            <a href = "https://vk.com/"><div class ="button" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">История заказов</p></div></a>
+        </div>
+
+        <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 55vw">
+            <a href = "https://vk.com/"><div class ="button" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Список желаний</p></div></a>
+            <a href = "https://vk.com/"><div class ="button" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Бонусы</p></div></a>
+            <a href = "{% url 'logout' %}?next=/loggedout "><div class ="button" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Выйти</p></div></a>
+
+        </div>
+    </div>
+{% endblock %}

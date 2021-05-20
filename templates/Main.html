@@ -5,8 +5,8 @@
         <link rel = "icon" href = "nothing">
         <link rel = "stylesheet"  href = "{% static 'Style.css' %}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <title>Pet Shop</title>
     </head>
 
@@ -21,7 +21,7 @@
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-            <p style = "display: block;margin: 2vw;" class = "button-text">Адреса магазинов</p>
+            <a href="{% url 'account_page' %}"><p style = "display: block;margin: 2vw;" class = "button-text">Личный кабинет</p></a>
         </div>
 
         <div class = "header_lower" style = "display: flex;">
@@ -47,6 +47,7 @@
 
         </div>
         <div class = "main">
+          {% block loggedout %}{% endblock %}
           {% block stuff %}
             <div  style = "position:absolute; top: 24vw;">
                 <div style = "background-color: rgb(3, 210, 251); width:86vw; height: 3vw; position: absolute; left: 2vw; top: 1vw;"></div>

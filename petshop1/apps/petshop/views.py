@@ -31,6 +31,16 @@ def search(request):
     else:
         return render(request, 'searchNotFound.html')
 
+def log_out(request):
+    logout(request)
+def logged_out(request):
+    products = update_rating()
+    return render(request, 'registration/logout.html', {'products': products})
+
+def load_account_page(request):
+    if request.user.is_authenticated:
+        return render(request, 'registration/user_account_page.html')
+    return redirect('/accounts/login/')
 
 def register(request):
     if request.method == 'POST':

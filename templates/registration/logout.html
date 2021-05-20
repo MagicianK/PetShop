@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Log out</title>
-</head>
-<body>
-<p>Logged out!</p>
-<a href="{% url 'login'%}">Click here to login again.</a>
-</body>
-</html>
+{% extends "Main.html" %}
+{% block loggedout %}
+    <div id="loggedout" style = "position:absolute; top: 24vw;">
+        <p style="font-size: 3vw; color: black;  font-weight: 0; position: relative; left: 0vw; top: 7vw; text-align: center;">Logged out successfully!</p>
+    </div>
+    <script>
+    setTimeout(function(){
+      $('#loggedout').remove();
+    }, 3000);
+    </script>
+{% endblock %}
