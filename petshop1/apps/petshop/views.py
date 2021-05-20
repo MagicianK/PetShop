@@ -33,6 +33,7 @@ def search(request):
 
 def log_out(request):
     logout(request)
+    
 def logged_out(request):
     products = update_rating()
     return render(request, 'registration/logout.html', {'products': products})
