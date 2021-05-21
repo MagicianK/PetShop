@@ -38,9 +38,9 @@ def logged_out(request):
     products = update_rating()
     return render(request, 'registration/logout.html', {'products': products})
 
-def load_account_page(request, user_id):
-    return render(request, 'registration/user_account_page.html')
-
+#def load_account_page(request, user_id):
+#    return render(request, 'registration/user_account_page.html')
+#don't work
 
 def register(request):
     if request.method == 'POST':
