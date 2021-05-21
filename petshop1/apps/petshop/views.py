@@ -33,15 +33,14 @@ def search(request):
 
 def log_out(request):
     logout(request)
-    
+
 def logged_out(request):
     products = update_rating()
     return render(request, 'registration/logout.html', {'products': products})
 
-def load_account_page(request):
-    if request.user.is_authenticated:
-        return render(request, 'registration/user_account_page.html')
-    return redirect('/accounts/login/')
+def load_account_page(request, id):
+    return render(request, 'registration/user_account_page.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -53,6 +52,3 @@ def register(request):
         form = RegisterForm()
 
     return render(request, 'registration/register.html', {"form": form})
-
-
-"""def login(request):"""

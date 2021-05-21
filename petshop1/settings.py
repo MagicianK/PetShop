@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/user_account_page'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
