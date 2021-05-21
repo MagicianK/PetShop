@@ -19,6 +19,6 @@ app_name = 'petshop'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('petshop.urls', app_name), namespace='petshop1')),
+    path('', include('petshop.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
