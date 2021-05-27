@@ -21,6 +21,11 @@
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            {% if user.is_authenticated %}
+                <a href="#helloiamfinethankyou"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> Лычный кыбыныт </a>
+            {% else %}
+                <a href="#helloiamfinethankyou"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> log in </a>
+            {% endif %}
         </div>
 
 
@@ -50,7 +55,7 @@
 
           {% block loggedout %}{% endblock %}
           {% block stuff %}
-          
+
             <div  style = "position:absolute; top: 24vw;">
                 <div style = "background-color: rgb(3, 210, 251); width:86vw; height: 3vw; position: absolute; left: 2vw; top: 1vw;"></div>
                 <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 0vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white;"><p style = "margin:1.2vw"> Каталог товаров:</p></div>
