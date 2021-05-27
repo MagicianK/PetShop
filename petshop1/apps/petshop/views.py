@@ -1,3 +1,4 @@
+from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -31,16 +32,19 @@ def search(request):
     else:
         return render(request, 'searchNotFound.html')
 
+
 def log_out(request):
     logout(request)
+
 
 def logged_out(request):
     products = update_rating()
     return render(request, 'registration/logout.html', {'products': products})
 
-#def load_account_page(request, user_id):
-#    return render(request, 'registration/user_account_page.html')
-#don't work
+
+def load_account_page(request, id):
+    return render(request, 'registration/user_account_page.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -52,3 +56,20 @@ def register(request):
         form = RegisterForm()
 
     return render(request, 'registration/register.html', {"form": form})
+
+
+def loginUserPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return render(request, 'registration/user_account_page.html')
+        else:
+            messages.info(request, 'Username or password is wrong')
+
+    context = {}
+    return render(request, 'registration/login.html', context)
