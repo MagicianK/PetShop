@@ -35,7 +35,7 @@ def search(request):
 
 def log_out(request):
     logout(request)
-
+    return redirect('/')
 
 def logged_out(request):
     products = update_rating()
