@@ -1,4 +1,3 @@
-from django.contrib.auth import logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -32,19 +31,16 @@ def search(request):
     else:
         return render(request, 'searchNotFound.html')
 
-
 def log_out(request):
     logout(request)
-
 
 def logged_out(request):
     products = update_rating()
     return render(request, 'registration/logout.html', {'products': products})
 
-
-def load_account_page(request, id):
-    return render(request, 'registration/user_account_page.html')
-
+#def load_account_page(request, user_id):
+#    return render(request, 'registration/user_account_page.html')
+#don't work
 
 def register(request):
     if request.method == 'POST':
