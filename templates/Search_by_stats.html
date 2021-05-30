@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "icon" href = "nothing">
+        <link rel = "stylesheet"  href = "{% static 'Style.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>Pet Shop</title>
+    </head>
+
+    <body>
+
+        <div class = "header_upper">
+            <p style = "display: block;margin: 2vw;" class = "button-text">О компании</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Доставка</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Оплата</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
+            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            {% if user.is_authenticated %}
+                <a href="#helloiamfinethankyou"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> Лычный кыбыныт </a>
+            {% else %}
+                <a href="{% url 'login' %}"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> log in </a>
+            {% endif %}
+        </div>
+
+
+        <div class = "header_lower" style = "display: flex;">
+            <div class = "header_resizable">
+            </div>
+            <div style = "position:relative;">
+            <div style = "background-image: linear-gradient(rgb(3, 210, 251),rgb(11, 122, 157)); width: 15vw; height: 15vw; position:absolute; left: 0vw; z-index: 2;">
+              <a href = "{% url 'Main'%}">  <div style = "background-image: url(/static/Resourses/Logo.svg); width: 15vw; height: 15vw; position:absolute; z-index: 2;">
+              </div> </a>
+            </div>
+            <div style = "background-color: rgb(11, 122, 157); width:20vw; height: 8vw; position: absolute; left: 15vw; top: 2vw; z-index: 1; text-align: center;"><p style="margin-top:1.5vw; margin-right: 0.3vw; font-size: 3.7vw; color: white; white-space: nowrap; font-weight: bold;">PET SHOP</p></div>
+            <div style = "background-color: rgb(3, 210, 251); width:5vw; height: 4vw; position: absolute; left: 33vw; top: 4vw; z-index: 1.9;"></div>
+            <div style = "background-color: rgb(11, 122, 157); width:50vw; height: 6vw; position: absolute; left: 37vw; top: 3vw; z-index: 1.8; text-align: center;"><p style="margin:0.5vw; font-size: 3.4vw; color: white; font-weight: normal;">Для всех ваших питомцев!</p></div>
+            <div style = "background-color: rgb(3, 210, 251); width:44vw; height: 3vw; position: absolute; left: 40vw; top: 8vw; z-index: -20; text-align: center;"></div>
+            <div style = "background-color: rgb(11, 122, 157); width:48vw; height: 5vw; position: absolute; left: 38vw; top: 10vw; z-index: 1; text-align: center;"></div>
+            <form action="{% url 'search' %}" method="get">
+              <input name="search" style="position: absolute; left: 38.85vw; top: 11vw; width: 46vw; height: 3vw; font-size: 2vw; z-index: 2; border: 0vw; " type="text" id="Find something" placeholder="Что-то найти?">
+            </form>
+            </div>
+        </div>
+
+        <div class = "header_underlower">
+
+        </div>
+        <div class = "main">
+
+          {% block loggedout %}{% endblock %}
+          {% block stuff %}
+          <div  style = "position:absolute; top: 24vw;">
+            <div style = "background-color: rgba(11, 122, 157, 0.7); width:20vw; height: 180vw; position: absolute; left:-4vw; color: white; font-size: 2vw;">
+            <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Price</p></div>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> 0-500</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">500-1000</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">1000-2000</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">2000-4000</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">4000+</button>
+
+            
+            
+            
+            <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Brand</p></div>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Whiskas</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Natura Pet Products </button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Champion Petfoods</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Golden Eagle HH</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Bosch Tiernahrung</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Hill’s Pet Nutrition</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> ROYAL CANIN</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Nestle Purina</button>
+            <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Classification</p></div>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Что значит "Классификация"?</button>
+
+            <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Animal</p></div>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Cat</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Dog</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Fish</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Bird</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Reptile</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Hamster</button>
+                <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Other</button>
+
+
+
+            <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Availability</p></div>
+               <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Yes</button>
+               <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> In other city</button>
+               <button class ="button" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Expected</button>
+
+            <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;"></p></div>
+
+            </div>
+            <div style = "background-color: none; width:74vw; height: 176vw; position: absolute; left:16vw; color: white; font-size: 2vw;">
+                <div style="background-color: rgb(241, 241, 241); width:70vw; height: 20vw; position: relative; left: 0vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw">
+                  <img src ="https://sun9-19.userapi.com/impg/XbtglT2F1Fd9TzPfADUA8N6M2VF9zv-N9OwyVg/OYrfNutwS1M.jpg?size=2000x2000&quality=96&sign=e76db4d30b878acee8198e28527060b9&type=album" style = " width: 18vw; height: 18vw; position: relative; top: 1vw; left: 1vw;">
+                
+                  <div style = " width:49vw; height: 3vw; position: relative; background-color: white; top: -17.4vw; left: 20vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">NAME OF PRODUCT</p></div>
+
+                <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -16vw; left: 2vw; color: rgb(107, 107, 107);">
+                <div style = " width:49vw; height: 3vw; position: relative; background-color: white; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Наличие: да</p></div>
+                
+                <div style = " width:49vw; height: 3vw; position: relative; background-color: white; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
+                
+                <div style = " width:49vw; height: 3vw; position: relative; background-color: white; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Цена: 1500 тенге</p></div>
+                
+                <div style = " width:49vw; height: 3vw; position: relative; background-color: white; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг:</p></div>
+
+                <div style = "display: flex;
+                justify-content: center;
+                align-items: center; position: relative; left:24.75vw; top: -2.75vw">
+                <div id = "1_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                <div id = "2_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                <div id = "3_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                <div id = "4_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                <div id = "5_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                </div>
+              </div>
+                
+
+
+                </div>
+
+
+                <div style="background-color: rgb(241, 241, 241); width:70vw; height: 20vw; position: relative; left: 0vw; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw; margin: 2vw"></div>
+                <div style="background-color: rgb(241, 241, 241); width:70vw; height: 20vw; position: relative; left: 0vw; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw; margin: 2vw"></div>
+            
+            </div>
+          </div>
+          {% endblock %}
+          {% block content %}
+          {% endblock %}      
+            </div>
+
+        </div>
+
+        <div class = "footer">
+            <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> Контакты </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <a href="{% url 'login' %}"><p style = "display: block; margin: 2vw; text-decoration: none; color: white;">Log In</p></a>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+
+            </div>
+            <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 3.5vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">FAQ</p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>

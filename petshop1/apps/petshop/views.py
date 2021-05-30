@@ -32,6 +32,10 @@ def search(request):
     else:
         return render(request, 'searchNotFound.html')
 
+def search_by_stats(request):
+    return render(request, 'Search_by_stats.html')
+
+
 
 def log_out(request):
     logout(request)

@@ -115,7 +115,7 @@ a{
 }
 
 .input-text{
-    transition: box-shadow .5s, color .5s;
+    transition: box-shadow .5s, color .5s;  
 }
 .input-text:hover{
     box-shadow: 0 0 2vw rgb(109, 109, 109) !important;
@@ -126,19 +126,18 @@ a{
     outline: none;
 }
 .button-text{
-    transition: text-shadow, color .2s;
+    transition: text-shadow, color .2s; 
     text-shadow: 0 0 1vw rgba(0, 0, 0, 0.0);
 }
 .button-text:hover{
     text-shadow: 0 0 2vw rgb(14, 255, 235) !important;
     color: white;
-
+    
 }
 a{
     color:rgb(35, 45, 81) !important;
-    transition: color .2s;
+    transition: color .2s; 
 }
-
 a:hover{
     color: white !important;
 }
