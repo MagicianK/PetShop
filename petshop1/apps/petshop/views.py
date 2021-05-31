@@ -4,13 +4,14 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.db.models import Q
-from .models import product
+from .models import *
 from .forms import RegisterForm
 from django.contrib import messages
-
+from django.http import JsonResponse
+import json
 
 def update_rating():
-    products = product.objects.order_by('-rating')
+    products = Product.objects.order_by('-rating')
     return products
 
 
@@ -83,3 +84,15 @@ def login_user_page(request):
 
     context = {}
     return render(request, 'registration/user_account_page.html', context)
+
+def updateItem(request):
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+
+    print('Action: ', action)
+    print('productId: ', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    return JsonResponse('Item was added', safe=False)
