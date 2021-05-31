@@ -22,7 +22,7 @@
             <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             {% if user.is_authenticated %}
-                <a href="{% url 'account' %}"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> Личный кабинет </a>
+                <a href="{% url 'petshop:account' %}"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> Личный кабинет </a>
             {% else %}
                 <a href="{% url 'login' %}"> <p style = "display: block;margin: 2vw;" class = "button-text"></p> log in </a>
             {% endif %}
@@ -34,7 +34,7 @@
             </div>
             <div style = "position:relative;">
             <div style = "background-image: linear-gradient(rgb(3, 210, 251),rgb(11, 122, 157)); width: 15vw; height: 15vw; position:absolute; left: 0vw; z-index: 2;">
-              <a href = "{% url 'Main'%}">  <div style = "background-image: url(/static/Resourses/Logo.svg); width: 15vw; height: 15vw; position:absolute; z-index: 2;">
+              <a href = "{% url 'petshop:Main'%}">  <div style = "background-image: url(/static/Resourses/Logo.svg); width: 15vw; height: 15vw; position:absolute; z-index: 2;">
               </div> </a>
             </div>
             <div style = "background-color: rgb(11, 122, 157); width:20vw; height: 8vw; position: absolute; left: 15vw; top: 2vw; z-index: 1; text-align: center;"><p style="margin-top:1.5vw; margin-right: 0.3vw; font-size: 3.7vw; color: white; white-space: nowrap; font-weight: bold;">PET SHOP</p></div>
@@ -42,7 +42,7 @@
             <div style = "background-color: rgb(11, 122, 157); width:50vw; height: 6vw; position: absolute; left: 37vw; top: 3vw; z-index: 1.8; text-align: center;"><p style="margin:0.5vw; font-size: 3.4vw; color: white; font-weight: normal;">Для всех ваших питомцев!</p></div>
             <div style = "background-color: rgb(3, 210, 251); width:44vw; height: 3vw; position: absolute; left: 40vw; top: 8vw; z-index: -20; text-align: center;"></div>
             <div style = "background-color: rgb(11, 122, 157); width:48vw; height: 5vw; position: absolute; left: 38vw; top: 10vw; z-index: 1; text-align: center;"></div>
-            <form action="{% url 'search' %}" method="get">
+            <form action="{% url 'petshop:search' %}" method="get">
               <input name="search" style="position: absolute; left: 38.85vw; top: 11vw; width: 46vw; height: 3vw; font-size: 2vw; z-index: 2; border: 0vw; " type="text" id="Find something" placeholder="Что-то найти?">
             </form>
             </div>
