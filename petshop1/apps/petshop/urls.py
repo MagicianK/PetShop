@@ -2,7 +2,6 @@ from django.urls import path
 from django.conf.urls import url
 from . import views
 
-app_name="petshop"
 urlpatterns = [
     #path('user_page/<int:id>', views.load_account_page, name='mypage'),
     path('', views.index, name='Main'),

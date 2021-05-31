@@ -22,5 +22,6 @@ from petshop1.apps import petshop
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('', include('petshop.urls', namespace='petshop')),
+    path('',include('petshop.urls')),
+
 ]
