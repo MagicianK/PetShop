@@ -32,7 +32,7 @@
 
     <body>
         <div class = "header_upper">
-            <p style = "display: block;margin: 2vw;" class = "button-text">О компании</p>
+           <p style = "display: block;margin: 2vw;" class = "button-text">О компании</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             <p style = "display: block;margin: 2vw;" class = "button-text">Доставка</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
@@ -41,9 +41,11 @@
             <p style = "display: block;margin: 2vw;" class = "button-text">Гарантии, обмен и возврат</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             {% if user.is_authenticated %}
-                 <a href="{% url 'mypage' user.id %}"><p style = "display: block;margin: 2vw;" class = "button-text">Личный кабинет</p>
+                 <a href="{% url 'mypage' user.id %}"><p style = "display: block;margin: 2vw;" class = "button-text">Личный кабинет</p></a>
             {% else %}
-                 <a href="{% url 'login' %}"><p style = "display: block; margin: 2vw; text-decoration: none;" class = "button-text">Log In</p></a>
+                 <a class = "a-old" href="{% url 'register' %}"><p style = "display: block; margin: 2vw; text-decoration: none;" class = "button-text">Sign Up</p></a>
+                 <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                 <a class = "a-old" href="{% url 'login' %}"><p style = "display: block; margin: 2vw; text-decoration: none;" class = "button-text">Log In</p></a>
             {% endif %}
         </div>
 
@@ -135,8 +137,6 @@
                 <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
                 <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
-                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-                <a href="{% url 'login' %}"><p style = "display: block; margin: 2vw; text-decoration: none; color: white;">Log In</p></a>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
 
             </div>
