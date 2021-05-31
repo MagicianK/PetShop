@@ -88,34 +88,45 @@ body {
     z-index: 0;
 }
 a{
+    transition: color .2s;
     text-decoration: none !important;
 }
 
-.button{
-    transition: background-color 0.1s, box-shadow 0.2s; 
-    
+.button-old{
+    transition: background-color 0.1s, box-shadow 0.2s;
+
 }
-.button:hover{
+.button-old:hover{
     background-color: white !important;
     color:rgb(35, 45, 81) !important;
     box-shadow: 0 0 6vw rgb(14, 255, 235) !important;
-   
+
 }
 
+.button-white{
+    transition: background-color 0.1s, box-shadow 0.2s;
+    color: white;
+}
+.button-white:hover{
+    background-color: white !important;
+    color:rgb(35, 45, 81) !important;
+    box-shadow: 0 0 6vw rgb(14, 255, 235) !important;
+
+}
 
 .button-calm{
-    transition: background-color 0.1s, box-shadow 0.2s; 
-    
+    transition: background-color 0.1s, box-shadow 0.2s;
+
 }
 .button-calm:hover{
     background-color: rgb(3, 210, 251) !important;
     color:rgb(35, 45, 81) !important;
-    
-   
+
+
 }
 
 .input-text{
-    transition: box-shadow .5s, color .5s;  
+    transition: box-shadow .5s, color .5s;
 }
 .input-text:hover{
     box-shadow: 0 0 2vw rgb(109, 109, 109) !important;
@@ -126,18 +137,18 @@ a{
     outline: none;
 }
 .button-text{
-    transition: text-shadow, color .2s; 
+    transition: text-shadow, color .2s;
     text-shadow: 0 0 1vw rgba(0, 0, 0, 0.0);
 }
 .button-text:hover{
     text-shadow: 0 0 2vw rgb(14, 255, 235) !important;
     color: white;
-    
+
 }
-a{
+.a-old{
     color:rgb(35, 45, 81) !important;
-    transition: color .2s; 
+    transition: color .2s;
 }
-a:hover{
+.a-old:hover{
     color: white !important;
 }
