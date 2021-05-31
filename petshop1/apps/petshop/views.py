@@ -42,6 +42,7 @@ def log_out(request):
     logout(request)
     return redirect('/')
 
+
 def logged_out(request):
     products = update_rating()
     return render(request, 'registration/logout.html', {'products': products})
@@ -66,9 +67,8 @@ def register(request):
         return render(request, 'registration/register.html', {"form": form})
 
 
-
 @login_required(login_url='login')
-def loginUserPage(request):
+def login_user_page(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -83,7 +83,3 @@ def loginUserPage(request):
 
     context = {}
     return render(request, 'registration/user_account_page.html', context)
-
-def logoutUserPage(request):
-    logout(request)
-    return redirect('login')
