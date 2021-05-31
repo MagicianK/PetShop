@@ -1,4 +1,5 @@
 from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
@@ -51,17 +52,22 @@ def load_account_page(request, id):
 
 
 def register(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
+    if request.user.is_authenticated:
+        return redirect('Main')
     else:
-        form = RegisterForm()
+        if request.method == 'POST':
+            form = RegisterForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+        else:
+            form = RegisterForm()
 
-    return render(request, 'registration/register.html', {"form": form})
+        return render(request, 'registration/register.html', {"form": form})
 
 
+
+@login_required(login_url='login')
 def loginUserPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -71,9 +77,13 @@ def loginUserPage(request):
 
         if user is not None:
             login(request, user)
-            return render(request, 'registration/user_account_page.html')
+            return redirect('Main')
         else:
             messages.info(request, 'Username or password is wrong')
 
     context = {}
-    return render(request, 'registration/login.html', context)
+    return render(request, 'registration/user_account_page.html', context)
+
+def logoutUserPage(request):
+    logout(request)
+    return redirect('login')
