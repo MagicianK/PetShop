@@ -23,12 +23,30 @@ def search_by_stats(request):
 
 def product_price_asc(request):
     products = Product.objects.order_by('price')
-    return render(request, 'Search_by_stats.html', {'products': products})
+
+    myFilter = ProductFilter(request.GET, queryset=products)
+    products = myFilter.qs
+
+    context = {'products': products, 'myFilter': myFilter}
+    return render(request, 'Search_by_stats.html', context)
 
 
 def product_price_desc(request):
     products = Product.objects.order_by('-price')
-    return render(request, 'Search_by_stats.html', {'products': products})
+    myFilter = ProductFilter(request.GET, queryset=products)
+    products = myFilter.qs
+
+    context = {'products': products, 'myFilter': myFilter}
+    return render(request, 'Search_by_stats.html', context)
+
+
+def product_novelty(request):
+    products = Product.objects.all().order_by('-novelty')
+    myFilter = ProductFilter(request.GET, queryset=products)
+    products = myFilter.qs
+
+    context = {'products': products, 'myFilter': myFilter}
+    return render(request, 'Search_by_stats.html', context)
 
 
 def update_rating():

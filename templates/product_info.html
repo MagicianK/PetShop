@@ -13,10 +13,12 @@
                   <a  href = "asd.html"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 6vw; top: 2vw; zoom: 130%;"><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 6vw; top: 0.8vw;">Купить</p></div></a>
               </div>
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 13vw; left: 46vw"></div>
-              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 14vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Наличие: да</p></div>
+              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 14vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Наличие: {{ products.0.availability }}</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 21vw; left: 46vw"></div>
-              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
+              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Brand: {{ products.0.brand }}</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 29vw; left: 46vw"></div>
+          <!--    <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Classification: {{ products.0.classification }}</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 29vw; left: 46vw"></div>-->
               <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 30vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Цена: {{ products.0.price }} ₸</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 37vw; left: 46vw"></div>
               <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 38vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Рейтинг:</p></div>
