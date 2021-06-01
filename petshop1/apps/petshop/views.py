@@ -11,7 +11,6 @@ from django.http import JsonResponse
 import json
 
 
-
 def search_by_stats(request):
     products = Product.objects.all()
 
@@ -20,6 +19,17 @@ def search_by_stats(request):
 
     context = {'products': products, 'myFilter': myFilter}
     return render(request, 'Search_by_stats.html', context)
+
+
+def product_price_asc(request):
+    products = Product.objects.order_by('price')
+    return render(request, 'Search_by_stats.html', {'products': products})
+
+
+def product_price_desc(request):
+    products = Product.objects.order_by('-price')
+    return render(request, 'Search_by_stats.html', {'products': products})
+
 
 def update_rating():
     products = Product.objects.order_by('-rating')
@@ -95,6 +105,7 @@ def cart(request):
         cartItems = order['get_cart_items']
     context = {'items' : items, 'order' : order, 'cartItems' : cartItems}
     return render(request, 'cart.html', context)
+
 
 def checkout(request):
     if request.user.is_authenticated:
