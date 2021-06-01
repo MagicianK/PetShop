@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls import url
 from . import views
 
@@ -11,4 +11,6 @@ urlpatterns = [
     path('loggedout/', views.logged_out, name='logged_out'),
     path('search/search_by_stats/', views.search_by_stats, name='search_by_stats'),
     path('update_item/', views.updateItem, name='update_item'),
+    path('cart/', views.cart, name='cart'),
+    path('checkout/', views.checkout, name='checkout'),
 ]

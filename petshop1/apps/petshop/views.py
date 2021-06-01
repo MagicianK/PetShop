@@ -18,7 +18,17 @@ def update_rating():
 
 def index(request):  # this is what user first will see at the beginning
     products = update_rating()
-    return render(request, 'Main.html', {'products': products})
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+    context = {'products' : products, 'cartItems' : cartItems}
+    return render(request, 'Main.html', context)
 
 
 def to_product(request, id):
@@ -68,24 +78,30 @@ def register(request):
 
         return render(request, 'registration/register.html', {"form": form})
 
+def cart(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        cartItems = order['get_cart_items']
+    context = {'items' : items, 'order' : order, 'cartItems' : cartItems}
+    return render(request, 'cart.html', context)
 
-@login_required(login_url='login')
-def login_user_page(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('Main')
-        else:
-            messages.info(request, 'Username or password is wrong')
-
-    context = {}
-    return render(request, 'registration/user_account_page.html', context)
-
+def checkout(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+    context = {'items' : items, 'order' : order, 'cartItems' : cartItems}
+    return render(request, 'checkout.html', context)
 
 def updateItem(request):
     data = json.loads(request.body)
@@ -97,4 +113,17 @@ def updateItem(request):
 
     customer = request.user.customer
     product = Product.objects.get(id=productId)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity - 1)
+
+    orderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
     return JsonResponse('Item was added', safe=False)
