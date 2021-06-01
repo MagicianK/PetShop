@@ -88,14 +88,13 @@
         <div class = "main">
 
           {% block loggedout %}{% endblock %}
-          {% block stuff %}
-
             <div  style = "position:absolute; top: 24vw;">
                 <div style = "background-color: rgb(3, 210, 251); width:86vw; height: 3vw; position: absolute; left: 2vw; top: 1vw;"></div>
                 <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 0vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw"> Каталог товаров:</p></div>
                 <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 23vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw"> Акции</p></div>
                 <div class ="button-text" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 46vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw"> Корма</p></div>
                 <div class ="button" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 69vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 1.8vw; color: white; white-space: nowrap;"><a href = "{% url 'search_by_stats' %}"><p style = "margin:1.2vw"> Поиск по параметрам</p></a></div>
+          {% block stuff %}
                 <div style="background-color: rgb(3, 210, 251); width:86vw; height: 4vw; position: absolute; left: 2vw; top: 13.5vw;"></div>
                 <div style="background-color: rgb(11, 122, 157); width:94vw;  position: absolute; left: -2vw; top: 15.5vw; border: 2vw solid rgb(11, 122, 157); padding:-5vw; z-index: 2; box-shadow: 0 0 2vw rgba(0,0,0,0.5);">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
@@ -125,15 +124,15 @@
                 <div style="background-color: rgb(11, 122, 157); width:30vw; height: 6vw; position:absolute; left: 1vw; top: 71.5vw; z-index: 2; box-shadow: 0 0 2vw rgba(0,0,0,0.5);"><p style="margin-top:0.9vw; margin-left: 5vw; font-size: 3vw; color: white; white-space: nowrap; font-weight: bold;">Рекомендуем</p></div>
                 <div style="background-color: rgb(3, 210, 251); width:90vw; height: 3vw; position:absolute; left: 0vw; top: 76.5vw; z-index: 1;"></div>
                 <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 76.5vw">
-                      {% for product in products %}
-                          <div class ="button-calm" style="background-color: rgb(11, 122, 157); width:25vw; height: 38vw; display: block; margin: 2vw; z-index: 1;">
-                              <img src ="{{product.imageURL}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
-                              <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ product.name }}</p>
-                              <a  href = "{% url 'buy' product.id %}"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw; "><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 8.5vw; top: 0.8vw;">Купить</p></div></a>
-                              <button class="update-cart" data-product={{product.id}} data-action="add"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw; "><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 2vw; top: 0.8vw;">Add to cart</p></div></button>
-                              <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -4.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{product.price}} ₸</p></div>
-                          </div>
-                      {% endfor %}
+                    {% for product in products|slice:":3" %}
+                        <div class ="button-calm" style="background-color: rgb(11, 122, 157); width:25vw; height: 38vw; display: block; margin: 2vw; z-index: 1;">
+                            <img src ="{{product.imageURL}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
+                            <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ product.name }}</p>
+                            <a  href = "{% url 'buy' product.id %}"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw; "><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 8.5vw; top: 0.8vw;">Купить</p></div></a>
+                            <button class="update-cart" data-product={{product.id}} data-action="add"><div class = "button" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left: 5vw; top: 1vw; "><p style="font-size: 3vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 2vw; top: 0.8vw;">Add to cart</p></div></button>
+                            <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -4.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{product.price}} ₸</p></div>
+                        </div>
+                    {% endfor %}
                 </div>
                 {% endblock %}
                 {% block content %}

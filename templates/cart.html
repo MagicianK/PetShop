@@ -1,78 +1,69 @@
 {% extends 'Main.html' %}
 {% load static %}
-{% block stuff %}
-<div class="">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+{% block stuff %} {% endblock %}
+{% block content %}
+<div class = "main" style = "height: 100vw">
+    <div  style = "position:absolute; top:7vw;">
+        <div style = "width:70vw; height: 5vw; position: absolute; left:0vw; top: 0vw; background-color: rgb(124, 124, 124); font-size: 2vw; display: flex;  justify-content: center; align-items: center;">
+            <p style = "display: block;margin: 2vw; color: white">Items: {{order.get_cart_items}}</p>
+            <div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
+            <p style = "display: block;margin: 2vw; color: white">Total: {{order.get_cart_total}} тенге</p>
+        </div>
+        <button onclick = "" class = "button-old" style = "width:20vw; height: 5vw; position: absolute; left:70vw; top: 0vw; background-color: rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white"> Accept order</button>
 
+        <div style = "width:90vw; height: 71vw; position: absolute; left:0vw; top: 5vw; background-color: rgb(241, 241, 241); font-size: 2vw; overflow-y: scroll; overflow-x: hidden; ">
+
+          {% for item in items %}
+            <!-- Это блок продукта (начало) -->
+            <!-- Ссылка на продукт -->
+            <div class="quantity">
+              <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}">
+              <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}">
+            </div>
+              <div style="background-color: rgb(255, 255, 255); width:70vw; height: 20vw; position: relative; left: 5vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.5vw rgba(0,0,0,0.5);">
+
+                <div style = " width: 18vw; height: 18vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 16vw; height: 16vw; position: relative; top: 1vw; left: 1vw;" src ="{{item.product.imageURL}}" ></div>
+
+                <a href = "{% url 'search_by_stats' %}"><div style = " width:49vw; height: 3vw; position: relative; background-color: rgb(11, 122, 157); top: -17.4vw; left: 20vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(255, 255, 255);">{{item.product.name}}</p></div></a>
+
+              <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -16vw; left: 2vw; color: rgb(107, 107, 107);">
+                <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: 0.1vw"></div>
+              <div style = " width:49vw; height: 3vw; position: relative; top: -0.200vw; left: 18vw">
+                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Количество: {{item.quantity}}</p>
+              </div>
+              <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.175vw"></div>
+              <div style = " width:49vw; height: 3vw; position: relative; top: -0.475vw; left: 18vw">
+                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.45vw"></div>
+              <div style = " width:49vw; height: 3vw; position: relative; top: -0.75vw; left: 18vw">
+                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Цена: {{item.product.price}} тенге</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.725vw"></div>
+              <div style = " width:49vw; height: 3vw; position: relative; top: -1.025vw; left: 18vw">
+                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг: {{item.product.rating}}</p></div>
+              <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -1vw"></div>
+
+
+
+
+              <div style = "display: flex; justify-content: center; align-items: center; position: relative; left:24.75vw; top: -4vw"> <!-- Это рейтинг, его нужно определить при создании сайта с помощью кода python (просто там где есть "звёздочка" вместо "rgb(182, 182, 182)" установить "rgb(12, 34, 84)" в background-color;)-->
+              <div id = "1_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "2_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "3_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "4_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "5_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+
+
+
+              </div>
+              <button onclick = "" class = "button-old"style = "background-color: rgb(255, 91, 73); width:5vw; height: 20vw; position: relative;  left: 69vw; top: -22.5vw; outline: none; border: none;" ><img src ="/static/images/Delete_logo.png" style = " width: 4vw; height: auto; position: relative; top: 0vw; left: 0vw;"></button>
+            </div>
+            </div>
+
+          <!-- Это блок продукта (конец) -->
+          {% endfor %}
+          </div>
+
+        </div>
+    </div>
 </div>
-
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="box-element">
-
-				<a  class="btn btn-outline-dark" href="{% url 'Main' %}">&#x2190; Continue Shopping</a>
-
-				<br>
-				<br>
-				<table class="table">
-					<tr>
-						<th><h5>Items: <strong>{{order.get_cart_items}}</strong></h5></th>
-						<th><h5>Total:<strong> ${{order.get_cart_total}}</strong></h5></th>
-						<th>
-							<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
-						</th>
-					</tr>
-				</table>
-
-			</div>
-
-			<br>
-			<div class="box-element">
-				<div class="cart-row">
-					<div style="flex:2"></div>
-					<div style="flex:2"><strong>Item</strong></div>
-					<div style="flex:1"><strong>Price</strong></div>
-					<div style="flex:1"><strong>Quantity</strong></div>
-					<div style="flex:1"><strong>Total</strong></div>
-				</div>
-				{% for item in items %}
-				<div class="cart-row">
-					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
-					<div style="flex:2"><p>{{item.product.name}}</p></div>
-					<div style="flex:1"><p>${{item.product.price}}</p></div>
-					<div style="flex:1">
-						<p class="quantity">{{item.quantity}}</p>
-						<div class="quantity">
-							<img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
-
-							<img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
-						</div>
-					</div>
-					<div style="flex:1"><p>${{item.get_total}}</p></div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
-{% endblock stuff %}
+{% endblock %}

@@ -22,9 +22,9 @@
 @import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
 
 body {
-  
+
     background-image:url("Resourses/Background 3.jpg");
-    
+
     margin: 0px;
     background-attachment: fixed;
     background-position: center;
@@ -32,7 +32,7 @@ body {
     background-size: cover;
     font-family: 'Oswald', sans-serif !important;
     font-weight: bold;
-  } 
+  }
 .header_upper{
     width: 100%;
     height: 6vw;
@@ -151,4 +151,17 @@ a{
 }
 .a-old:hover{
     color: white !important;
+}
+
+
+.chg-quantity{
+	width: 75px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+}
+
+.chg-quantity:hover{
+	opacity: .6;
 }

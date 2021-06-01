@@ -5,19 +5,6 @@
   <br>
   <br>
   <br><br>
-  <br>
-  <br><br>
-  <br>
-  <br><br>
-  <br>
-  <br><br>
-  <br>
-  <br><br>
-  <br>
-  <br>
-  <br>
-  <br><br>
-  <br>
   <br><br>
 </div>
      <div class="row">
@@ -63,7 +50,7 @@
 			<div class="box-element hidden" id="payment-info">
 				<small>Paypal Options</small>
 				<!--<button id="make-payment">Make payment</button>-->
-				<div id="paypal-button-container"></div>
+				<button id="make-payment">Make payment</button>
 			</div>
 
 		</div>
@@ -87,4 +74,21 @@
 			</div>
 		</div>
 	</div>
+  <script type="text/javascript">
+      var form = document.getElementById('form')
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault()
+        console.log('form submitting')
+        document.getElementById('form-button').classList.add('hidden')
+        document.getElementById('payment-info').classList.remove('hidden')
+      })
+      document.getElementById('make-payment').addEventListener('click', function(e){
+        submitFormDate()
+      })
+      function submitFormDate() {
+        console.log('Payment button clicked')
+
+      }
+  </script>
 {% endblock stuff %}

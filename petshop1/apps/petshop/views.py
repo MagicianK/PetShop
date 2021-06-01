@@ -38,7 +38,13 @@ def update_rating():
 
 def index(request):  # this is what user first will see at the beginning
     products = update_rating()
+
     if request.user.is_authenticated:
+        if not request.user.customer:
+            Customer.objects.create(
+            user=request.user,
+            name=request.user.username,
+            )
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
@@ -91,9 +97,22 @@ def register(request):
                 return redirect('/')
         else:
             form = RegisterForm()
-
         return render(request, 'registration/register.html', {"form": form})
+@login_required(login_url='login')
+def login_user_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('Main')
+        else:
+            messages.info(request, 'Username or password is wrong')
+
+    context = {}
+    return render(request, 'registration/user_account_page.html', context)
 def cart(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -105,7 +124,6 @@ def cart(request):
         cartItems = order['get_cart_items']
     context = {'items' : items, 'order' : order, 'cartItems' : cartItems}
     return render(request, 'cart.html', context)
-
 
 def checkout(request):
     if request.user.is_authenticated:
