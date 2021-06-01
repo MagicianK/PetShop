@@ -5,13 +5,24 @@
         <div class = "main">
           <div  style = "position:absolute; top: 24vw;">
             <div style = "background-color: rgba(11, 122, 157, 0.7); width:20vw; height: 180vw; position: absolute; left:-4vw; color: white; font-size: 2vw;">
+                <form method="GET">
+
             <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Price</p></div>
-                <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> 0-500</button>
+                   <div style="background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">
+                       <p >Less or equal: <span style="size: 3px;">{{ myFilter.form.price__lt }}</span></p>
+                   </div>
+                    <div style="background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">
+                       <p>Greater or equal: <span>{{ myFilter.form.price__gt }}</span></p>
+                   </div>
+                <!--<button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> 0-500</button>
                 <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">500-1000</button>
                 <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">1000-2000</button>
                 <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">2000-4000</button>
-                <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">4000+</button>
-
+                <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">4000+</button>-->
+             <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Rating</p></div>
+                   <div style="background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw">
+                       <p >Rating: <span style="size: 3px;">{{ myFilter.form.rating }}</span></p>
+                   </div>
 
 
             <div style = "background-color: rgb(14, 154, 197); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10;"><p style = "padding-top: 0.55vw;">Brand</p></div>
@@ -42,8 +53,8 @@
                <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> In other city</button>
                <button class ="button-old" style = "background-color: rgb(11, 122, 157); width:16vw; height: 3vw; position: relative; left: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); outline: 1px solid rgb(11, 122, 157); border: none; text-align: center; font-size: 1.5vw; color: white; white-space: nowrap;padding-top: 0.4vw"> Expected</button>
 
-            <button class ="button-old" style = "background-color: rgb(70, 208, 250); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10 ; outline: none;border: none; padding-top: 0.55vw; ">Submit</button>
-
+            <button class ="button-old" style = "background-color: rgb(70, 208, 250); width:20vw; height: 4vw; position: relative; color: white; font-size: 2vw; text-align: center; z-index: 10 ; outline: none;border: none; padding-top: 0.55vw; " type="submit">Submit</button>
+                </form>
             </div>
             <div  style = "width:74vw; height: 6vw; position: absolute; left:16vw; background-color: rgb(255, 255, 255); font-size: 2vw; display: flex;justify-content: center; align-items: center; background-color: rgb(11, 122, 157);">
               <p style = "display: block;margin: 2vw; color: white">Sort by:</p>
@@ -65,41 +76,64 @@
 
 
               <!-- Это блок продукта (начало) -->
-              <a href = "{% url 'search_by_stats' %}"><!-- Ссылка на продукт -->
+            {% for product in products %}
+              <a href = "{% url 'buy' product.id %}" id="{{ product.price }}"><!-- Ссылка на продукт -->
                 <div class ="button-old" style="background-color: rgb(255, 255, 255); width:70vw; height: 20vw; position: relative; left: 0vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.5vw rgba(0,0,0,0.5);">
-                  <div style = " width: 18vw; height: 18vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 16vw; height: 16vw; position: relative; top: 1vw; left: 1vw;" src ="https://sun9-19.userapi.com/impg/XbtglT2F1Fd9TzPfADUA8N6M2VF9zv-N9OwyVg/OYrfNutwS1M.jpg?size=2000x2000&quality=96&sign=e76db4d30b878acee8198e28527060b9&type=album" ></div>
+                    <div style = " width: 18vw; height: 18vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 16vw; height: 16vw; position: relative; top: 1vw; left: 1vw;" src ="{{ product.imageURL }}" ></div>
 
-                  <div style = " width:49vw; height: 3vw; position: relative; background-color: rgb(11, 122, 157); top: -17.4vw; left: 20vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(255, 255, 255);">NAME OF PRODUCT</p></div>
+                    <div style = " width:49vw; height: 3vw; position: relative; background-color: rgb(11, 122, 157); top: -17.4vw; left: 20vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(255, 255, 255);">{{ product.name }}</p></div>
 
-                <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -16vw; left: 2vw; color: rgb(107, 107, 107);">
-                  <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: 0.1vw"></div>
-                <div style = " width:49vw; height: 3vw; position: relative; top: -0.200vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Наличие: да</p></div>
-                <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.175vw"></div>
-                <div style = " width:49vw; height: 3vw; position: relative; top: -0.475vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
-                <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.45vw"></div>
-                <div style = " width:49vw; height: 3vw; position: relative; top: -0.75vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Цена: 1500 тенге</p></div>
-                <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.725vw"></div>
-                <div style = " width:49vw; height: 3vw; position: relative; top: -1.025vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг:</p></div>
-                <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -1vw"></div>
+                    <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -16vw; left: 2vw; color: rgb(107, 107, 107);">
+                        <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: 0.1vw"></div>
+                        <div style = " width:49vw; height: 3vw; position: relative; top: -0.200vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Наличие: да</p></div>
+                        <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.175vw"></div>
+                        <div style = " width:49vw; height: 3vw; position: relative; top: -0.475vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
+                        <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.45vw"></div>
+                        <div style = " width:49vw; height: 3vw; position: relative; top: -0.75vw; left: 18vw" class="price-" id="{{ product.price }}"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">{{ product.price }} ₸ </p></div>
+                        <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.725vw"></div>
+                        <div style = " width:49vw; height: 3vw; position: relative; top: -1.025vw; left: 18vw"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг: {{ product.rating }}</p></div>
+                        <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -1vw"></div>
+                    </div>
 
-
-
-
-                <div style = "display: flex; justify-content: center; align-items: center; position: relative; left:24.75vw; top: -4vw"> <!-- Это рейтинг, его нужно определить при создании сайта с помощью кода python (просто там где есть "звёздочка" вместо "rgb(182, 182, 182)" установить "rgb(12, 34, 84)" в background-color;)-->
-                <div id = "1_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-                <div id = "2_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-                <div id = "3_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-                <div id = "4_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-                <div id = "5_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                    <!-- Это рейтинг, его нужно определить при создании сайта с помощью кода python (просто там где есть "звёздочка" вместо "rgb(182, 182, 182)" установить "rgb(12, 34, 84)" в background-color;)-->
+                    <!--<div style = "display: flex; justify-content: center; align-items: center; position: relative; left:24.75vw; top: -4vw">
+                        <div id = "1_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                        <div id = "2_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                        <div id = "3_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                        <div id = "4_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                        <div id = "5_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+                    </div>-->
                 </div>
-              </div>
-              </div>
-            </a>
+              </a>
+                {% endfor %}
             <!-- Это блок продукта (конец) -->
-            
+
             </div>
           </div>
             </div>
 
         </div>
+
+
+        <div class = "footer">
+          <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+              <p style = "display: block;margin: 2vw;"> Контакты </p>
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+              <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+              <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+
+          </div>
+          <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 3.5vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+              <p style = "display: block;margin: 2vw;">FAQ</p>
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+              <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+              <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
+              <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+          </div>
+      </div>
 {% endblock %}

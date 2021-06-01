@@ -11,6 +11,16 @@ from django.http import JsonResponse
 import json
 
 
+
+def search_by_stats(request):
+    products = Product.objects.all()
+
+    myFilter = ProductFilter(request.GET, queryset=products)
+    products = myFilter.qs
+
+    context = {'products': products, 'myFilter': myFilter}
+    return render(request, 'Search_by_stats.html', context)
+
 def update_rating():
     products = Product.objects.order_by('-rating')
     return products
@@ -44,10 +54,6 @@ def search(request):
         return render(request, 'product_info.html', {'products': matches})
     else:
         return render(request, 'searchNotFound.html')
-
-
-def search_by_stats(request):
-    return render(request, 'Search_by_stats.html')
 
 
 def log_out(request):

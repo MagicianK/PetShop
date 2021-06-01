@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
-
+import django_filters
 class Product(models.Model):
     name = models.CharField('name of product', max_length = 50)
     image = models.ImageField('url for picture of product', null=True, blank=True)
@@ -22,6 +22,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class ProductFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='iexact')
+    price = django_filters.NumberFilter()
+    price__gt = django_filters.NumberFilter(field_name='price', lookup_expr='gte')
+    price__lt = django_filters.NumberFilter(field_name='price', lookup_expr='lte')
+
+    class Meta:
+        model = Product
+        exclude = ['image', 'description']
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
