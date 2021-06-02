@@ -2,29 +2,26 @@
 {% load static %}
 {% block stuff %} {% endblock %}
 {% block content %}
-<div class = "main" style = "height: 100vw">
-    <div  style = "position:absolute; top:7vw;">
+<div class = "main" style = "height: 71vw">
+    <div  style = "position:absolute; top:0.5vw;">
         <div style = "width:70vw; height: 5vw; position: absolute; left:0vw; top: 0vw; background-color: rgb(124, 124, 124); font-size: 2vw; display: flex;  justify-content: center; align-items: center;">
             <p style = "display: block;margin: 2vw; color: white">Items: {{order.get_cart_items}}</p>
             <div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
             <p style = "display: block;margin: 2vw; color: white">Total: {{order.get_cart_total}} тенге</p>
         </div>
-        <button onclick = "" class = "button-old" style = "width:20vw; height: 5vw; position: absolute; left:70vw; top: 0vw; background-color: rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white"> Accept order</button>
+        <a href = "{% url 'checkout'%}"><button  class = "button-old" style = "width:20vw; height: 5vw; position: absolute; left:70vw; top: 0vw; background-color: rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white"> Accept order</button></a>
 
         <div style = "width:90vw; height: 71vw; position: absolute; left:0vw; top: 5vw; background-color: rgb(241, 241, 241); font-size: 2vw; overflow-y: scroll; overflow-x: hidden; ">
 
           {% for item in items %}
             <!-- Это блок продукта (начало) -->
             <!-- Ссылка на продукт -->
-            <div class="quantity">
-              <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}">
-              <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}">
-            </div>
+            
               <div style="background-color: rgb(255, 255, 255); width:70vw; height: 20vw; position: relative; left: 5vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.5vw rgba(0,0,0,0.5);">
 
                 <div style = " width: 18vw; height: 18vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 16vw; height: 16vw; position: relative; top: 1vw; left: 1vw;" src ="{{item.product.imageURL}}" ></div>
 
-                <a href = "{% url 'search_by_stats' %}"><div style = " width:49vw; height: 3vw; position: relative; background-color: rgb(11, 122, 157); top: -17.4vw; left: 20vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(255, 255, 255);">{{item.product.name}}</p></div></a>
+                <a href="{% url 'buy' item.product.id %}" ><div   class = "button-calm" style = " width:49vw; height: 3vw; position: relative; background-color: rgb(11, 122, 157); top: -17.4vw; left: 20vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(255, 255, 255);">{{item.product.name}}</p></div></a>
 
               <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -16vw; left: 2vw; color: rgb(107, 107, 107);">
                 <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: 0.1vw"></div>
@@ -55,9 +52,17 @@
 
 
               </div>
-              <button onclick = "" class = "button-old"style = "background-color: rgb(255, 91, 73); width:5vw; height: 20vw; position: relative;  left: 69vw; top: -22.5vw; outline: none; border: none;" ><img src ="/static/images/Delete_logo.png" style = " width: 4vw; height: auto; position: relative; top: 0vw; left: 0vw;"></button>
+              <div class="quantity" style = "position: relative;  left: 69vw; top: -22.5vw;">
+                <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" style = "width: 5vw; height: 3vw;"> 
+                <button data-product="{{item.product.id}}" data-action="delete" class="chg-quantity update-cart" class = "button-old"style = "background-color: rgb(255, 91, 73); width:5vw; height: 13vw; position: relative; top: 0.5vw; outline: none; border: none;" ><img  src ="/static/images/Delete_logo.png" style = " width: 4vw; height: auto; position: relative; top: 0vw; left: 0vw;"></button>
+                <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}" style = "width: 5vw; height: 3vw; position: relative; top: 0.9vw;">
+              </div>
             </div>
             </div>
+
+
+
+             
 
           <!-- Это блок продукта (конец) -->
           {% endfor %}
@@ -65,5 +70,26 @@
 
         </div>
     </div>
+</div>
+<div class = "footer" style = "position: absolute; top:100vw">
+  <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+      <p style = "display: block;margin: 2vw;"> Контакты </p>
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+      <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+      <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+
+  </div>
+  <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 3.5vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+      <p style = "display: block;margin: 2vw;">FAQ</p>
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+      <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+      <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
+      <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+  </div>
 </div>
 {% endblock %}

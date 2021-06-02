@@ -137,7 +137,7 @@ a{
     outline: none;
 }
 .button-text{
-    transition: text-shadow, color .2s;
+    transition: text-shadow .2s, color .2s;
     text-shadow: 0 0 1vw rgba(0, 0, 0, 0.0);
 }
 .button-text:hover{
