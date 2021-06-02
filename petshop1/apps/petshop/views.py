@@ -54,11 +54,14 @@ def update_rating():
     return products
 
 def checkCustomer(request):
-    if not hasattr(request.user, 'Customer'):
+    if hasattr(request.user, 'customer'):
+        print('yes')
+    else:
+        print('no')
         Customer.objects.create(
         user=request.user,
         name=request.user.username,
-        )
+        email=request.user.email)
 
 def index(request):  # this is what user first will see at the beginning
     products = update_rating()
