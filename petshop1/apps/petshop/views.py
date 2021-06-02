@@ -53,16 +53,17 @@ def update_rating():
     products = Product.objects.order_by('-rating')
     return products
 
+def checkCustomer(request):
+    if not hasattr(request.user, 'Customer'):
+        Customer.objects.create(
+        user=request.user,
+        name=request.user.username,
+        )
 
 def index(request):  # this is what user first will see at the beginning
     products = update_rating()
-
     if request.user.is_authenticated:
-        if not request.user.customer:
-            Customer.objects.create(
-            user=request.user,
-            name=request.user.username,
-            )
+        checkCustomer(request)
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
