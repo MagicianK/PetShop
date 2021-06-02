@@ -10,7 +10,6 @@ from django.contrib import messages
 from django.http import JsonResponse
 import json
 
-
 def search_by_stats(request):
     products = Product.objects.all()
 
@@ -75,7 +74,7 @@ def index(request):  # this is what user first will see at the beginning
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
         cartItems = order['get_cart_items']
-    context = {'products' : products, 'cartItems' : cartItems}
+    context = {'products' : products, 'cartItems' : cartItems, 'items' : items}
     return render(request, 'Main.html', context)
 
 

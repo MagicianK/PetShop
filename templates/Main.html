@@ -80,14 +80,14 @@
         <div class = "main">
 
           {% block loggedout %}{% endblock %}
-          
+
             <div  style = "position:absolute; top: 24vw;">
                 <div style = "background-color: rgb(3, 210, 251); width:86vw; height: 3vw; position: absolute; left: 2vw; top: 1vw;"></div>
                 <div class ="button-old" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 0vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw"> Каталог товаров:</p></div>
                 <div class ="button-old" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 23vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw"> Акции</p></div>
                 <div class ="button-old" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 46vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 2vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw"> Корма</p></div>
                 <a  href = "{% url 'search_by_stats' %}"><div class ="button-old" style = "background-color: rgb(11, 122, 157); width:21vw; height: 5vw; position: absolute; left: 69vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5); text-align: center; font-size: 1.8vw; color: white; white-space: nowrap;"><p style = "margin:1.2vw;"> Поиск по параметрам</p></div></a>
-          
+
                 <div style="background-color: rgb(3, 210, 251); width:86vw; height: 4vw; position: absolute; left: 2vw; top: 13.5vw;"></div>
                 <div style="background-color: rgb(11, 122, 157); width:94vw;  position: absolute; left: -2vw; top: 15.5vw; border: 2vw solid rgb(11, 122, 157); padding:-5vw; z-index: 2; box-shadow: 0 0 2vw rgba(0,0,0,0.5);">
                 <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
@@ -124,21 +124,21 @@
                       <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ product.name }}</p>
                       <button class="update-cart" data-product={{product.id}} data-action="add" style="width:20vw; height: 4vw; position: relative; left: 5vw; top: 3vw; background-color: none; outline: none; border: none;"><div class = "button-old" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left:-1vw; top: -1vw"><p style="font-size: 2.6vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 3vw; top: 1.2vw;">Add to cart</p></div></button>
                       <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -2.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{product.price}} ₸</p></div>
-                    </div> 
-                  </a>        
+                    </div>
+                  </a>
                     {% endfor %}
                 </div>
                 <div style="background-color: rgb(3, 210, 251); width:90vw; height: 3vw; position:absolute; left: 0vw; top: 120.5vw; z-index: 1;"></div>
                 <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 120.5vw">
-                    {% for product in products|slice:":3" %}
+                    {% for product in products|slice:"3:6" %}
                     <a  href = "{% url 'buy' product.id %}" >
                     <div class ="button-calm" style="background-color: rgb(11, 122, 157); width:25vw; height: 35vw; display: block; margin: 2vw; z-index: 1;">
                       <img src ="{{product.imageURL}}" style = " width: 23vw; height: auto; position: relative; top: 1vw; left: 1vw;">
                       <p style="font-size: 3vw; color: rgb(255, 255, 255);  font-weight: 0; position: relative; left: 0vw; top: 1.5vw; text-align: center;">{{ product.name }}</p>
-                      <button class="update-cart" data-product={{product.id}} data-action="add" style="width:20vw; height: 4vw; position: relative; left: 5vw; top: 3vw; background-color: none; outline: none; border: none;"><div class = "button-old" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left:-1vw; top: -1vw"><p style="font-size: 2.6vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 3vw; top: 1.2vw;">Add to cart</p></div></button>
+                        <button class="update-cart" data-product={{product.id}} data-action="add" style="width:20vw; height: 4vw; position: relative; left: 5vw; top: 3vw; background-color: none; outline: none; border: none;"><div class = "button-old" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left:-1vw; top: -1vw"><p style="font-size: 2.6vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 3vw; top: 1.2vw;">Add to cart</p></div></button>
                       <div style="background-color: rgb(33, 154, 179); width:12vw; height: 4.5vw; position: relative; left: -1vw; top: -2.5vw;"><p style="font-size: 2.5vw; color: white; white-space: nowrap; font-weight: bold; position: relative; left: 2.9vw; top: 0.6vw;">{{product.price}} ₸</p></div>
-                    </div> 
-                  </a>        
+                    </div>
+                  </a>
                     {% endfor %}
                 </div>
             </div>
