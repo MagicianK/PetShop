@@ -155,10 +155,11 @@ def register(request):
             form = RegisterForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('/')
+                return redirect('login')
         else:
             form = RegisterForm()
         return render(request, 'registration/register.html', {"form": form})
+
 @login_required(login_url='login')
 def login_user_page(request):
     if request.method == 'POST':
