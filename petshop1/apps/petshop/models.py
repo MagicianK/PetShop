@@ -128,7 +128,7 @@ class ProductFilter(django_filters.FilterSet):
     rating = django_filters.ChoiceFilter(field_name='rating', choices=choicesrating)
     brand = django_filters.ChoiceFilter(field_name='brand', choices=choicesbrand)
     animal = django_filters.ChoiceFilter(field_name='animal', choices=choicesanimal)
-    classification = django_filters.ChoiceFilter(field_name='classification', choices=Product.choicesavail)
+    classification = django_filters.ChoiceFilter(field_name='classification', choices=choicesclass)
     availability = django_filters.ChoiceFilter(field_name='availability', choices=choicesavail)
 
     class Meta:
