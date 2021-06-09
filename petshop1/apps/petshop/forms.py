@@ -19,7 +19,7 @@ class CommentForm(forms.ModelForm):
         fields = ('body', 'rating')
 
         widgets = {
-            'body': forms.Textarea(),
-            'rating': forms.NumberInput(),
+            'body': forms.Textarea(attrs={'class': 'form-control'}),
+            'rating': forms.NumberInput(attrs={'class': 'input-text'}),
         }
 

@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 import django_filters
 
 
-class Product(models.Model):
-    choicesbrand = (
+choicesbrand = (
         ('Whiskas', 'Whiskas'),
         ('Natura Pet Products', 'Natura Pet Products'),
         ('Champion Petfoods', 'Champion Petfoods'),
@@ -14,8 +13,8 @@ class Product(models.Model):
         ("Hill's Pet Nutrition", "Hill's Pet Nutrition"),
         ('ROYAL CANIN', 'ROYAL CANIN'),
         ('Nestle Purina', 'Nestle Purina'),
-    )
-    choicesanimal = (
+)
+choicesanimal = (
         ('Cat', 'Cat'),
         ('Dog', 'Dog'),
         ('Fish', 'Fish'),
@@ -23,21 +22,51 @@ class Product(models.Model):
         ('Reptile', 'Reptile'),
         ('Hamster', 'Hamster'),
         ('Other', 'Other'),
-    )
-    choicesclass = (
+)
+choicesclass = (
         ('Food', 'Food'),
         ('Nutrient', 'Nutrient'),
         ('Toy', 'Toy'),
         ('Accessories', 'Accessories')
-    )
+)
+
+
+class Brand(models.Model):
+
+    name = models.CharField('brand of the product', max_length=50, choices=choicesbrand)
+
+    class Meta:
+        verbose_name_plural = "brands"
+
+    def __str__(self):
+        return self.name
+
+
+class Animal(models.Model):
+    name = models.CharField('animal species of the product', max_length=50, choices=choicesanimal)
+
+    class Meta:
+        verbose_name_plural = "animals"
+
+    def __str__(self):
+        return self.name
+
+
+class Classification(models.Model):
+    name = models.CharField('type of product', max_length=50, choices=choicesclass)
+
+    class Meta:
+        verbose_name_plural = "classifications"
+
+    def __str__(self):
+        return self.name
+
+
+class Product(models.Model):
     choicesavail = (
         ('Yes', 'Yes'),
         ('In other city', 'In other city'),
         ('Expected', 'Expected'),
-    )
-    choicesnovelty = (
-        (True, 'Yes'),
-        (False, 'No'),
     )
 
     name = models.CharField('name of product', max_length=50)
@@ -45,11 +74,11 @@ class Product(models.Model):
     description = models.TextField('description of product')
     rating = models.IntegerField('rating', default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
     price = models.IntegerField('price', default=0, validators=[MinValueValidator(0)])
-    brand = models.CharField('brand of the product', max_length=50, choices=choicesbrand)
-    animal = models.CharField('animal species of the product', max_length=50, choices=choicesanimal)
-    classification = models.CharField('type of product', max_length=50, choices=choicesclass)
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    classification = models.ForeignKey(Classification, on_delete=models.CASCADE)
     availability = models.CharField('availability of product', max_length=20, choices=choicesavail)
-    novelty = models.BooleanField('is it new or not', default=True, choices=choicesnovelty)
+    novelty = models.DateTimeField(auto_now_add=True)
 
     @property
     def imageURL(self):
@@ -82,31 +111,6 @@ class ProductFilter(django_filters.FilterSet):
         (4, 'Four'),
         (5, 'Five'),
     )
-    choicesbrand = (
-        ('Whiskas', 'Whiskas'),
-        ('Natura Pet Products', 'Natura Pet Products'),
-        ('Champion Petfoods', 'Champion Petfoods'),
-        ('Golden Eagle HH', 'Golden Eagle HH'),
-        ('Bosch Tiernahrung', 'Bosch Tiernahrung'),
-        ("Hill's Pet Nutrition", "Hill's Pet Nutrition"),
-        ('ROYAL CANIN', 'ROYAL CANIN'),
-        ('Nestle Purina', 'Nestle Purina'),
-    )
-    choicesanimal = (
-        ('Cat', 'Cat'),
-        ('Dog', 'Dog'),
-        ('Fish', 'Fish'),
-        ('Bird', 'Bird'),
-        ('Reptile', 'Reptile'),
-        ('Hamster', 'Hamster'),
-        ('Other', 'Other'),
-    )
-    choicesclass = (
-        ('Food', 'Food'),
-        ('Nutrient', 'Nutrient'),
-        ('Toy', 'Toy'),
-        ('Accessories', 'Accessories')
-    )
     choicesavail = (
         ('Yes', 'Yes'),
         ('In other city', 'In other city'),
@@ -124,7 +128,7 @@ class ProductFilter(django_filters.FilterSet):
     rating = django_filters.ChoiceFilter(field_name='rating', choices=choicesrating)
     brand = django_filters.ChoiceFilter(field_name='brand', choices=choicesbrand)
     animal = django_filters.ChoiceFilter(field_name='animal', choices=choicesanimal)
-    classification = django_filters.ChoiceFilter(field_name='classification', choices=choicesclass)
+    classification = django_filters.ChoiceFilter(field_name='classification', choices=Product.choicesavail)
     availability = django_filters.ChoiceFilter(field_name='availability', choices=choicesavail)
 
     class Meta:
@@ -192,7 +196,7 @@ class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments")
     username = models.CharField(max_length=50)
     body = models.TextField()
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateField(auto_now_add=True)
     rating = models.IntegerField('rating', default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
 
     def __str__(self):

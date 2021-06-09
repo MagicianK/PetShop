@@ -165,3 +165,19 @@ a{
 .chg-quantity:hover{
 	opacity: .6;
 }
+
+.text-area{
+    width: 20px;
+    height: 5px;
+    transition: box-shadow .5s, color .5s;
+    display: block;
+	margin: 5px;
+}
+.text-area:hover{
+    box-shadow: 0 0 2vw rgb(109, 109, 109) !important;
+    color: rgb(0, 34, 128);
+    z-index: 10;
+}
+.text-area:focus{
+    outline: none;
+}
