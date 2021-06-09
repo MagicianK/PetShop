@@ -1,14 +1,16 @@
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views import View
 from django.db.models import Q
 from .models import *
-from .forms import RegisterForm
+from .forms import RegisterForm, CommentForm
 from django.contrib import messages
 from django.http import JsonResponse
+from datetime import datetime
 import json
+
 
 def search_by_stats(request):
     products = Product.objects.all()
@@ -52,6 +54,7 @@ def update_rating():
     products = Product.objects.order_by('-rating')
     return products
 
+
 def checkCustomer(request):
     if hasattr(request.user, 'customer'):
         print('yes')
@@ -61,6 +64,7 @@ def checkCustomer(request):
         user=request.user,
         name=request.user.username,
         email=request.user.email)
+
 
 def index(request):  # this is what user first will see at the beginning
     products = update_rating()
@@ -81,7 +85,43 @@ def index(request):  # this is what user first will see at the beginning
 def to_product(request, id):
     # this function will return id of product to product_info.html after user clicked button 'buy'
     products = Product.objects.filter(Q(id=id))
-    return render(request, 'product_info.html', {'products': products})
+    numberOfComments = Comment.objects.filter(product_id=id).count()
+    user = request.user
+
+    context = {
+        'products': products,
+        'numberOfComments': numberOfComments,
+        'user': user,
+    }
+    return render(request, 'product_info.html', context)
+
+
+@login_required(login_url='login')
+# Comment section
+def add_comment(request, id):
+    products = Product.objects.get(id=id)
+    form = CommentForm(instance=products)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=products)
+        if form.is_valid():
+            username = request.user.username
+            body = form.cleaned_data['body']
+            rating = form.cleaned_data['rating']
+
+            c = Comment(product=products, username=username, body=body, date_added=datetime.now(), rating=rating)
+            c.save()
+            return redirect('/')
+        else:
+            print('Invalid Form')
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment.html', {'form': form})
+
+
+def delete_comment(request, id):
+    comment = Comment.objects.get(id=id)
+    comment.delete()
+    return redirect('/')
 
 
 def search(request):
@@ -158,6 +198,7 @@ def checkout(request):
         cartItems = order['get_cart_items']
     context = {'items' : items, 'order' : order, 'cartItems' : cartItems}
     return render(request, 'checkout.html', context)
+
 
 def updateItem(request):
     data = json.loads(request.body)

@@ -1,0 +1,12 @@
+{% extends 'Main.html' %}
+
+{% block stuff %} {% endblock %}
+{% block content %}
+    <form method="POST" action="">{% csrf_token %}
+        <div style="background-color: rgb(255, 255, 255); width:70vw; height: 21vw; position: relative; left: 0vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.8vw rgba(0,0,0,0.5);">
+            <div style = " width: 6vw; height: 6vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 5vw; height: 5vw; position: relative; top: 0.5vw; left: 0.5vw;" src ="https://sun9-19.userapi.com/impg/XbtglT2F1Fd9TzPfADUA8N6M2VF9zv-N9OwyVg/OYrfNutwS1M.jpg?size=2000x2000&quality=96&sign=e76db4d30b878acee8198e28527060b9&type=album" ></div>
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

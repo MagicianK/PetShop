@@ -42,7 +42,7 @@ class Product(models.Model):
 
     name = models.CharField('name of product', max_length=50)
     image = models.ImageField('url for picture of product', null=True, blank=True)
-    description = models.CharField('description of product', max_length=200)
+    description = models.TextField('description of product')
     rating = models.IntegerField('rating', default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
     price = models.IntegerField('price', default=0, validators=[MinValueValidator(0)])
     brand = models.CharField('brand of the product', max_length=50, choices=choicesbrand)
@@ -186,3 +186,16 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
+
+
+class Comment(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments")
+    username = models.CharField(max_length=50)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+    rating = models.IntegerField('rating', default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
+
+    def __str__(self):
+        return '%s - %s - %s' % (self.id, self.product.name, self.username)
+
+
