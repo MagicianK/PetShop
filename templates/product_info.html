@@ -97,11 +97,11 @@
                                   {{ comment.date_added }}</p></div>
 
                               <div style = "display: flex; justify-content: center; align-items: center; position: relative; left:25vw; top: -10.43vw">
-                                  <div id = "1_Rate_C" onload="RateComment()" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div> <!-- Это рейтинг, его нужно определить при создании сайта с помощью кода python (просто там где есть "звёздочка" вместо "rgb(182, 182, 182)" установить "rgb(12, 34, 84)" в background-color;)-->
-                                  <div id = "2_Rate_C" onload="RateComment()" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
-                                  <div id = "3_Rate_C" onload="RateComment()" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
-                                  <div id = "4_Rate_C" onload="RateComment()" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
-                                  <div id = "5_Rate_C" onload="RateComment()" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
+                                  <div id = "1_Rate_C_{{ comment.id }}" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div> <!-- Это рейтинг, его нужно определить при создании сайта с помощью кода python (просто там где есть "звёздочка" вместо "rgb(182, 182, 182)" установить "rgb(12, 34, 84)" в background-color;)-->
+                                  <div id = "2_Rate_C_{{ comment.id }}" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
+                                  <div id = "3_Rate_C_{{ comment.id }}" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
+                                  <div id = "4_Rate_C_{{ comment.id }}" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
+                                  <div id = "5_Rate_C_{{ comment.id }}" style = "display:block; margin-left:0.6vw; width: 3vw; height: 3vw; background-color: rgb(182, 182, 182);"></div>
                               </div>
                               <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -6vw; left: 2vw; color: rgb(107, 107, 107);">
                                   <div style = "background-color: rgb(198, 219, 236); width:68vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: -1vw; top: -1.5vw"></div>
@@ -124,23 +124,23 @@
 
                               function RateComment() {
                                   if (rateComment >= 1){
-                                      var Rate_v_1 = document.getElementById('1_Rate_C');
+                                      var Rate_v_1 = document.getElementById('1_Rate_C_{{ comment.id }}');
                                       Rate_v_1.style.backgroundColor = "rgb(12, 34, 84)";
                                   }
                                   if (rateComment >= 2){
-                                      var Rate_v_2 = document.getElementById('2_Rate_C');
+                                      var Rate_v_2 = document.getElementById('2_Rate_C_{{ comment.id }}');
                                       Rate_v_2.style.backgroundColor = "rgb(12, 34, 84)";
                                   }
                                   if (rateComment >= 3){
-                                      var Rate_v_3 = document.getElementById('3_Rate_C');
+                                      var Rate_v_3 = document.getElementById('3_Rate_C_{{ comment.id }}');
                                       Rate_v_3.style.backgroundColor = "rgb(12, 34, 84)";
                                   }
                                   if (rateComment >= 4){
-                                      var Rate_v_4 = document.getElementById('4_Rate_C');
+                                      var Rate_v_4 = document.getElementById('4_Rate_C_{{ comment.id }}');
                                       Rate_v_4.style.backgroundColor = "rgb(12, 34, 84)";
                                   }
                                   if (rateComment >= 5){
-                                      var Rate_v_5 = document.getElementById('5_Rate_C');
+                                      var Rate_v_5 = document.getElementById('5_Rate_C_{{ comment.id }}');
                                       Rate_v_5.style.backgroundColor = "rgb(12, 34, 84)";
                                   }
                               }
