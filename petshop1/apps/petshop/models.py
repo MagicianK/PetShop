@@ -116,10 +116,6 @@ class ProductFilter(django_filters.FilterSet):
         ('In other city', 'In other city'),
         ('Expected', 'Expected'),
     )
-    choicesnovelty = (
-        (True, 'Yes'),
-        (False, 'No'),
-    )
 
     name = django_filters.CharFilter(lookup_expr='iexact')
     price = django_filters.NumberFilter()
@@ -140,9 +136,10 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
+    telephone = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.name
+        return '%s - %s' % (self.id, self.user.username)
 
 
 class Order(models.Model):
@@ -201,5 +198,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return '%s - %s - %s' % (self.id, self.product.name, self.username)
-
 

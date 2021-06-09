@@ -1,0 +1,12 @@
+{% extends 'Main.html' %}
+{% load static %}
+{% block stuff %} {% endblock %}
+{% block content %}
+    <form method="POST" action="">{% csrf_token %}
+        <div style="background-color: rgb(255, 255, 255); width:80vw; height: 40vw; position: relative; left: 0vw; top: 2vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.8vw rgba(0,0,0,0.5);">
+
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

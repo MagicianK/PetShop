@@ -1,9 +1,11 @@
 from django.urls import path, include
 from django.conf.urls import url
 from . import views
+from .views import *
 
 urlpatterns = [
     path('user_page/<int:id>', views.load_account_page, name='mypage'),
+    path('user_page/<int:id>/edit', views.edit_account_page, name='edit'),
     path('', views.index, name='Main'),
     path('product/<int:id>', views.to_product, name='buy'),
     path('product/<int:id>/add_comment/', views.add_comment, name='comment'),

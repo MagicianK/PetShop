@@ -23,3 +23,14 @@ class CommentForm(forms.ModelForm):
             'rating': forms.NumberInput(attrs={'class': 'input-text'}),
         }
 
+
+class CustomerForm(forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = ('name', 'telephone')
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'text-input'}),
+            'telephone': forms.TextInput(attrs={'class': 'text-input'}),
+        }
+

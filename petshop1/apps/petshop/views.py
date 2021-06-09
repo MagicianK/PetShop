@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, reverse
 from django.views import View
 from django.db.models import Q
 from .models import *
-from .forms import RegisterForm, CommentForm
+from .forms import *
 from django.contrib import messages
 from django.http import JsonResponse
 from datetime import datetime
@@ -63,7 +63,8 @@ def checkCustomer(request):
         Customer.objects.create(
         user=request.user,
         name=request.user.username,
-        email=request.user.email)
+        email=request.user.email,
+        telephone=None)
 
 
 def index(request):  # this is what user first will see at the beginning
@@ -143,8 +144,21 @@ def logged_out(request):
     return render(request, 'registration/logout.html', {'products': products})
 
 
+@login_required(login_url='login')
 def load_account_page(request, id):
     return render(request, 'registration/user_account_page.html')
+
+
+def edit_account_page(request, id):
+    customer = Customer.objects.get(id=id)
+    form = CustomerForm(instance=customer)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    return render(request, 'registration/user_acc_settings.html', {'form': form, 'customer': customer})
 
 
 def register(request):
@@ -159,6 +173,7 @@ def register(request):
         else:
             form = RegisterForm()
         return render(request, 'registration/register.html', {"form": form})
+
 
 @login_required(login_url='login')
 def login_user_page(request):
@@ -175,6 +190,8 @@ def login_user_page(request):
 
     context = {}
     return render(request, 'registration/user_account_page.html', context)
+
+
 def cart(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -186,6 +203,7 @@ def cart(request):
         cartItems = order['get_cart_items']
     context = {'items' : items, 'order' : order, 'cartItems' : cartItems}
     return render(request, 'cart.html', context)
+
 
 def checkout(request):
     if request.user.is_authenticated:
