@@ -27,10 +27,11 @@ class CommentForm(forms.ModelForm):
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
-        fields = ('name', 'telephone')
+        fields = ('name', 'telephone', 'image')
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'text-input'}),
             'telephone': forms.TextInput(attrs={'class': 'text-input'}),
+            'image': forms.FileInput
         }
 

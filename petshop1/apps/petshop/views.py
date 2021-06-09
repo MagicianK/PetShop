@@ -64,7 +64,8 @@ def checkCustomer(request):
         user=request.user,
         name=request.user.username,
         email=request.user.email,
-        telephone=None)
+        telephone=None,
+        image=None)
 
 
 def index(request):  # this is what user first will see at the beginning
@@ -149,6 +150,7 @@ def load_account_page(request, id):
     return render(request, 'registration/user_account_page.html')
 
 
+@login_required(login_url='login')
 def edit_account_page(request, id):
     customer = Customer.objects.get(id=id)
     form = CustomerForm(instance=customer)
@@ -158,7 +160,11 @@ def edit_account_page(request, id):
             form.save()
             return redirect('/')
 
-    return render(request, 'registration/user_acc_settings.html', {'form': form, 'customer': customer})
+    context = {
+        'form': form,
+        'customer': customer,
+    }
+    return render(request, 'registration/user_acc_settings.html', context)
 
 
 def register(request):

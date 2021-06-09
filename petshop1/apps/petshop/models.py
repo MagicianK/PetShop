@@ -137,6 +137,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
     telephone = models.CharField(max_length=200, null=True)
+    image = models.ImageField('url for picture', null=True, upload_to="")
 
     def __str__(self):
         return '%s - %s' % (self.id, self.user.username)
