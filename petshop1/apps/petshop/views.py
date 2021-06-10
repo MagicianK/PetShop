@@ -11,6 +11,8 @@ from django.http import JsonResponse
 from datetime import datetime
 import json
 
+def currentOrders(request):
+    return render(request, 'current_orders.html')
 
 def search_by_stats(request):
     products = Product.objects.all()
