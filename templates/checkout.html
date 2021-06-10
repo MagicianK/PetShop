@@ -11,93 +11,138 @@
             <div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
 			<p style = "display: block;margin: 2vw; color: white">Items: {{order.get_cart_items}}</p>
             <div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-            <p style = "display: block;margin: 2vw; color: white">Total: {{order.get_cart_total}} tenge</p>
+            <p style = "display: block;margin: 2vw; color: white">Total: {{order.get_cart_total}} $</p>
         </div>
 		<form id="form" style = "position:absolute; width: 90vw; top:5vw">
-		
-		
-
-
-		
-
-
+			{% csrf_token %}
 		<div style = "overflow-y: scroll; overflow-x:hidden; height: 30vw; background-color: rgb(230, 230, 230); position:relative; top: 0.5vw;">
 		{% for item in items %}
-
-
-
-
-
-		
-		
 			<div style = "width:82vw; height: 5vw; position: relative; left:2vw; top: 0vw; background-color: rgb(255, 255, 255); font-size: 2vw; display: flex;  justify-content: center; align-items: center; margin: 2vw; box-shadow: 0 0 2vw rgba(0,0,0,0.5);">
 				<img src="{{item.product.imageURL}}"  style = "margin: 2vw; color: black; width: 5vw; height:5vw; border:0.1vw solid black; position: relative; ">
 				<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
 				<p style = "display: block;margin: 2vw; color: black">{{item.product.name}}</p>
 				<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-				<p style = "display: block;margin: 2vw; color: black">{{item.product.price}} tenge</p>
+				<p style = "display: block;margin: 2vw; color: black">{{item.product.price}} $</p>
 				<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
 				<p style = "display: block;margin: 2vw; color: black">x{{item.quantity}}</p>
 			</div>
-		
+
 		{% endfor %}
 		</div>
-		
-		<div style = "width:90vw; height: 5vw; position: absolute;  top: 31vw; background-color: rgb(124, 124, 124); font-size: 2vw; display: flex;  justify-content: center; align-items: center;">
-            <input required class="form-control" type="text" name="name" placeholder="Name.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); width: 36.5vw; font-size: 2vw;" value="{{ request.user }}">
-            <div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-			<input required class="form-control" type="email" name="email" placeholder="Email.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); width: 36.5vw; font-size: 2vw;" value="{{ request.user.email }}">    
-        </div>
-		
-		
-
-		
+			<div id="user-info" style = "width:90vw; height: 5vw; position: absolute;  top: 31vw; background-color: rgb(124, 124, 124); font-size: 2vw; display: flex;  justify-content: center; align-items: center;">
+							<input required class="form-control" type="text" name="name" placeholder="Name.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); width: 36.5vw; font-size: 2vw;" value="{{ request.user }}">
+							<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
+							<input required class="form-control" type="email" name="email" placeholder="Email.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); width: 36.5vw; font-size: 2vw;" value="{{ request.user.email }}">
+			</div>
 			<div id="shipping-info" style = "position:absolute; top: 37vw;">
 				<div style = "width:90vw; height: 5vw; position: relative; background-color: rgb(124, 124, 124); font-size: 2vw; display: flex;  justify-content: center; align-items: center;">
-					
+
 					<input class="form-control" type="text" name="address" placeholder="Address.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">
 					<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-					<input class="form-control" type="text" name="city" placeholder="City.." placeholder="Email.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">  
+					<input class="form-control" type="text" name="city" placeholder="City.." placeholder="Email.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">
 					<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-					<input class="form-control" type="text" name="state" placeholder="State.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">  
+					<input class="form-control" type="text" name="state" placeholder="State.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">
 					<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-					<input class="form-control" type="text" name="zipcode" placeholder="Zip code.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">  
+					<input class="form-control" type="text" name="zipcode" placeholder="Zip code.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">
 					<div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-					<input class="form-control" type="text" name="country" placeholder="Country.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">    
+					<input class="form-control" type="text" name="country" placeholder="Country.." style = "display: block;margin: 2vw; color: rgb(0, 0, 0); font-size: 2vw; width: 12vw">
 				</div>
 			</div>
-
-			<input id="form-button" class="button-old" type="submit" value="Continue" style = "width:90vw; height: 5vw; position: absolute; top: 43vw; background-color:rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white">
-			
-		
+			<input id="form-button" type="submit" value="Continue" style = "width:90vw; height: 5vw; position: absolute; top: 43vw; background-color:rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white">
+			<div class="hidden" id="payment-info"  style = "width:90vw; height: 5vw; position: absolute; top: 43vw; background-color:rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white">
+				<small>PayPal</small>
+				<div id="paypal-button-container" style = "width:100vw; height: 5vw;"></div>
+			</div>
 		</form>
-	
-
-	
-			
-
-
 	</div>
-	
-		
-	
+
+
+
 </div>
-     
-  <script type="text/javascript">
-      var form = document.getElementById('form')
+    <script src="https://www.paypal.com/sdk/js?client-id=ATwYP-4DG3iCzkMjpjSIhaDlLN34EaZSWyWynbsKZ9aFjW5WHBNFsgSYft0olfIfofym1kg0KGCTeW-y&currency=USD&disable-funding=credit"></script>
+		<script>
+			var total = '{{order.get_cart_total}}'
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+						style:{
+							color: "blue",
+							shape: "rect",
+						},
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: parseFloat(total).toFixed(2)
+                        }
+                    }]
+                });
+            },
 
-      form.addEventListener('submit', function(e){
-        e.preventDefault()
-        console.log('form submitting')
-        document.getElementById('form-button').classList.add('hidden')
-        document.getElementById('payment-info').classList.remove('hidden')
-      })
-      document.getElementById('make-payment').addEventListener('click', function(e){
-        submitFormDate()
-      })
-      function submitFormDate() {
-        console.log('Payment button clicked')
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+										submitFormDate()
+                });
+            }
 
-      }
-  </script>
+
+        }).render('#paypal-button-container');
+    </script>
+		<script type="text/javascript">
+				var shipping = '{{order.shipping}}'
+				var form = document.getElementById('form')
+				var total = '{{order.get_cart_total|floatformat:2}}'
+				csrftoken = form.getElementsByTagName("input")[0].value
+				console.log('NewToken: ', form.getElementsByTagName("input")[0].value)
+				form.addEventListener('submit', function(e){
+					e.preventDefault()
+					console.log('form submitting')
+					document.getElementById('form-button').classList.add('hidden')
+					document.getElementById('payment-info').classList.remove('hidden')
+				})
+
+				function submitFormDate() {
+
+					console.log('Payment button clicked')
+
+					var userFormData = {
+						'name': null,
+						'email': null,
+						'total': total,
+					}
+					var shippingInfo = {
+						'address': null,
+						'city': null,
+						'state': null,
+						'zipcode': null,
+					}
+
+					shippingInfo.address = form.address.value
+					shippingInfo.state = form.state.value
+					shippingInfo.city = form.city.value
+					shippingInfo.zipcode = form.zipcode.value
+					userFormData.name = form.name.value
+					userFormData.email = form.email.value
+					var url = '/processOrder/'
+					fetch(url, {
+						method: 'POST',
+						headers:{
+							'Content-Type':'application/json',
+							'X-CSRFToken': csrftoken,
+						},
+						body: JSON.stringify({'form' : userFormData, 'shipping' : shippingInfo}),
+					})
+					.then((response) => response.json())
+					.then((data) => {
+						console.log('Success:', data);
+						alert('Transaction completed');
+						cart = {}
+						document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+
+						window.location.href = "{% url 'Main' %}"
+					})
+				}
+		</script>
 {% endblock stuff %}

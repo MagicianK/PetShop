@@ -7,7 +7,7 @@
         <div style = "width:70vw; height: 5vw; position: absolute; left:0vw; top: 0vw; background-color: rgb(124, 124, 124); font-size: 2vw; display: flex;  justify-content: center; align-items: center;">
             <p style = "display: block;margin: 2vw; color: white">Items: {{order.get_cart_items}}</p>
             <div style = "background-color: rgb(157, 157, 157); width:0.3vw; height: 3.5vw; border-radius: 2vw;"></div>
-            <p style = "display: block;margin: 2vw; color: white">Total: {{order.get_cart_total}} тенге</p>
+            <p style = "display: block;margin: 2vw; color: white">Total: {{order.get_cart_total}} $</p>
         </div>
         <a href = "{% url 'checkout'%}"><button  class = "button-old" style = "width:20vw; height: 5vw; position: absolute; left:70vw; top: 0vw; background-color: rgb(11, 122, 157); font-size: 2vw; display: flex;  justify-content: center; align-items: center; outline: none; border: none; color: white"> Accept order</button></a>
 
@@ -16,7 +16,7 @@
           {% for item in items %}
             <!-- Это блок продукта (начало) -->
             <!-- Ссылка на продукт -->
-            
+
               <div style="background-color: rgb(255, 255, 255); width:70vw; height: 20vw; position: relative; left: 5vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.5vw rgba(0,0,0,0.5);">
 
                 <div style = " width: 18vw; height: 18vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 16vw; height: 16vw; position: relative; top: 1vw; left: 1vw;" src ="{{item.product.imageURL}}" ></div>
@@ -33,7 +33,7 @@
                 <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Вес: 350гр</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.45vw"></div>
               <div style = " width:49vw; height: 3vw; position: relative; top: -0.75vw; left: 18vw">
-                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Цена: {{item.product.price}} тенге</p></div>
+                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Цена: {{item.product.price}} $</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.725vw"></div>
               <div style = " width:49vw; height: 3vw; position: relative; top: -1.025vw; left: 18vw">
                 <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг: {{item.product.rating}}</p></div>
@@ -53,7 +53,7 @@
 
               </div>
               <div class="quantity" style = "position: relative;  left: 69vw; top: -22.5vw;">
-                <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" style = "width: 5vw; height: 3vw;"> 
+                <img data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" style = "width: 5vw; height: 3vw;">
                 <button data-product="{{item.product.id}}" data-action="delete" class="chg-quantity update-cart" class = "button-old"style = "background-color: rgb(255, 91, 73); width:5vw; height: 13vw; position: relative; top: 0.5vw; outline: none; border: none;" ><img  src ="/static/images/Delete_logo.png" style = " width: 4vw; height: auto; position: relative; top: 0vw; left: 0vw;"></button>
                 <img data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static 'images/arrow-down.png' %}" style = "width: 5vw; height: 3vw; position: relative; top: 0.9vw;">
               </div>
@@ -62,7 +62,7 @@
 
 
 
-             
+
 
           <!-- Это блок продукта (конец) -->
           {% endfor %}

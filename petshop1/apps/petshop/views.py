@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 from datetime import datetime
 import json
+import datetime
 
 
 def search_by_stats(request):
@@ -251,3 +252,34 @@ def updateItem(request):
     if orderItem.quantity <= 0:
         orderItem.delete()
     return JsonResponse('Item was added', safe=False)
+
+from django.views.decorators.csrf import csrf_exempt
+#yes it works, do not touch it
+
+@csrf_exempt
+def processOrder(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        total = data['form']['total']
+        order.transaction_id = transaction_id
+
+        if float(total) == float(order.get_cart_total):
+            print('completed')
+            order.complete = True
+        order.save()
+
+
+        ShippingAddress.objects.create(
+            customer=customer,
+            order=order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            zipcode=data['shipping']['zipcode'],
+            state=data['shipping']['state'],
+        )
+    else:
+        print('User is not logged in')
+    return JsonResponse('Payment complete!', safe=False)

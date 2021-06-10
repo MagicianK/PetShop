@@ -20,5 +20,5 @@ urlpatterns = [
     path('search/search_by_stats/price_asc/', views.product_price_asc, name='price_asc'),
     path('search/search_by_stats/price_desc/', views.product_price_desc, name='price_desc'),
     path('search/search_by_stats/novelty/', views.product_novelty, name='novelty'),
-
+    path('processOrder/', views.processOrder, name='processOrder'),
 ]
