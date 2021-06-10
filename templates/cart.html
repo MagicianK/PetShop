@@ -36,18 +36,18 @@
                 <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Цена: {{item.product.price}} $</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -0.725vw"></div>
               <div style = " width:49vw; height: 3vw; position: relative; top: -1.025vw; left: 18vw">
-                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг: {{item.product.rating}}</p></div>
+                <p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84);">Рейтинг: </p></div>
               <div style = "background-color: rgb(198, 219, 236); width:49vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: 18vw; top: -1vw"></div>
 
 
 
 
               <div style = "display: flex; justify-content: center; align-items: center; position: relative; left:24.75vw; top: -4vw"> <!-- Это рейтинг, его нужно определить при создании сайта с помощью кода python (просто там где есть "звёздочка" вместо "rgb(182, 182, 182)" установить "rgb(12, 34, 84)" в background-color;)-->
-              <div id = "1_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-              <div id = "2_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-              <div id = "3_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-              <div id = "4_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
-              <div id = "5_Rate" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "1_Rate_{{ item.product.id }}" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "2_Rate_{{ item.product.id }}" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "3_Rate_{{ item.product.id }}" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "4_Rate_{{ item.product.id }}" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
+              <div id = "5_Rate_{{ item.product.id }}" style = "display:block; margin-left:0.3vw; width: 2.5vw; height: 2.5vw; background-color: rgb(182, 182, 182);"></div>
 
 
 
@@ -60,7 +60,33 @@
             </div>
             </div>
 
+              <script>
+                var rate = {{ item.product.rating }};
 
+                function Rate() {
+                    if (rate >= 1){
+                        var Rate_v_1 = document.getElementById('1_Rate_{{ item.product.id }}');
+                        Rate_v_1.style.backgroundColor = "rgb(12, 34, 84)";
+                    }
+                    if (rate >= 2){
+                        var Rate_v_2 = document.getElementById('2_Rate_{{ item.product.id }}');
+                        Rate_v_2.style.backgroundColor = "rgb(12, 34, 84)";
+                    }
+                    if (rate >= 3){
+                        var Rate_v_3 = document.getElementById('3_Rate_{{ item.product.id }}');
+                        Rate_v_3.style.backgroundColor = "rgb(12, 34, 84)";
+                    }
+                    if (rate >= 4){
+                        var Rate_v_4 = document.getElementById('4_Rate_{{ item.product.id }}');
+                        Rate_v_4.style.backgroundColor = "rgb(12, 34, 84)";
+                    }
+                    if (rate >= 5){
+                        var Rate_v_5 = document.getElementById('5_Rate_{{ item.product.id }}');
+                        Rate_v_5.style.backgroundColor = "rgb(12, 34, 84)";
+                    }
+                }
+                document.onload = Rate();
+              </script>
 
 
 

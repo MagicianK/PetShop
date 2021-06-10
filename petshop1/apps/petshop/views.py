@@ -171,7 +171,11 @@ def edit_account_page(request, id):
 @login_required(login_url='login')
 def currentOrders(request, id):
     customer = Customer.objects.get(user_id=id)
-    return render(request, 'current_orders.html')
+    order = Order.objects.get(customer_id=customer.id)
+    context = {
+        'order': order
+    }
+    return render(request, 'current_orders.html', context)
 
 
 def register(request):
