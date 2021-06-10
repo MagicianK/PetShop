@@ -11,8 +11,6 @@ from django.http import JsonResponse
 from datetime import datetime
 import json
 
-def currentOrders(request):
-    return render(request, 'current_orders.html')
 
 def search_by_stats(request):
     products = Product.objects.all()
@@ -155,8 +153,7 @@ def load_account_page(request, id):
 
 @login_required(login_url='login')
 def edit_account_page(request, id):
-    user = User.objects.get(id=id)
-    customer = Customer.objects.get(id=user.id)
+    customer = Customer.objects.get(user_id=id)
     form = CustomerForm(instance=customer)
     if request.method == 'POST':
         form = CustomerForm(request.POST, request.FILES, instance=customer)
@@ -169,6 +166,12 @@ def edit_account_page(request, id):
         'customer': customer,
     }
     return render(request, 'registration/user_acc_settings.html', context)
+
+
+@login_required(login_url='login')
+def currentOrders(request, id):
+    customer = Customer.objects.get(user_id=id)
+    return render(request, 'current_orders.html')
 
 
 def register(request):
