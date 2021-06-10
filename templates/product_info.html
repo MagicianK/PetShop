@@ -4,7 +4,14 @@
   {% block content %}
 <div class = "main" style = "height: 176.5vw">
   <div  style = "position:absolute; top: 0.5vw;">
-
+                <style>.scroll {
+                    height: 6vw;
+                    max-width: 40.3vw;
+                    
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    white-space: nowrap;
+                    }</style>
               <div style="background-color: rgb(3, 210, 251); width:90vw; height: 4vw; position: absolute; left: 0vw; top: 6.5vw; z-index: 0;"></div>
               <div style="background-color: rgb(11, 122, 157); width:40vw; height: 6vw; position: absolute; left: 5vw; top: 2vw; text-align: center; font-size: 3.5vw; color: white; box-shadow: 0 0 1vw rgba(0,0,0,0.5); z-index: 1;"><p style = "margin-top:0.4vw"> {{ products.0.name }}</p></div>
 
@@ -13,15 +20,16 @@
                   <img src ="{{products.0.imageURL}}" style = " width: 33vw; height: auto; position: relative; top: 1vw; left: 1vw;">
                   <button class="update-cart" data-product={{products.0.id}} data-action="add" style="width:20vw; height: 4vw; position: relative; left: 15vw; top: 3vw; background-color: none; outline: none; border: none;"><div class = "button-old" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left:-1vw; top: -1vw"><p style="font-size: 2.6vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: relative; left: 0vw; top: 1.2vw;">Add to cart</p></div></button>
                 </div>
+                
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 13vw; left: 46vw"></div>
-              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 14vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Наличие: {{ products.0.availability }}</p></div>
-              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 21vw; left: 46vw"></div>
-              <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Brand: {{ products.0.brand }}</p></div>
+              <div  style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 14vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84); ">Наличие: {{ products.0.availability }}</p></div>
+              <div  style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 21vw; left: 46vw"></div>
+              <div  class = "scroll"style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw;"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84); ">Brand: {{ products.0.brand }}</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 29vw; left: 46vw"></div>
           <!--    <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 22vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Classification: {{ products.0.classification }}</p></div>
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 29vw; left: 46vw"></div>-->
               <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 30vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Цена: {{ products.0.price }} ₸</p></div>
-              <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 37vw; left: 46vw"></div>
+              <div  style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 37vw; left: 46vw"></div>
               <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 38vw; left: 46vw"><p style = "margin-top:0.4vw; font-size: 4vw; color: rgb(12, 34, 84);">Рейтинг:</p></div>
 
               <div id = "1_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 63vw;"></div>
@@ -30,11 +38,11 @@
               <div id = "4_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 76.5vw;"></div>
               <div id = "5_Rate" style = "width: 4vw; height: 4vw; background-color: rgb(182, 182, 182); position: absolute;  top: 39.5vw; left: 81vw;"></div>
 
-
+            
 
 
               <div style = "background-color: rgb(198, 219, 236); width:40.3vw; height: 0.6vw; position: absolute; border-radius: 0.3vw; top: 45vw; left: 46vw"></div>
-
+            
 
 
               <script>
@@ -71,25 +79,27 @@
 
               <div style="background-color: rgb(3, 210, 251); width:90vw; height: 4vw; position: absolute; left: 0vw; top: 66.5vw; z-index: 0;"></div>
               <div style="background-color: rgb(11, 122, 157); width:40vw; height: 6vw; position: absolute; left: 5vw; top: 62vw; text-align: center; font-size: 3.5vw; color: white; box-shadow: 0 0 1vw rgba(0,0,0,0.5); z-index: 1;"><p style = "margin-top:0.4vw"> Описание продукта</p></div>
-              <div style = "width: 90vw; position: absolute;  top: 70vw;"><p style = "padding: 4vw; margin-top:0.4vw;  font-size: 2vw; color: rgb(12, 34, 84);">
+              <div id = "parent_main" style = "width: 50vw; position: absolute;  top: 70vw;"><p id = "main" style = "padding: 4vw; margin-top:0.4vw;  font-size: 2vw; color: rgb(12, 34, 84);">
                   {{ products.0.description }}
+              
+                  
               </p></div>
-
+              
               <div style="background-color: rgb(3, 210, 251); width:90vw; height: 4vw; position: absolute; left: 0vw; top: 110vw; z-index: 0;"></div>
               <div style="background-color: rgb(11, 122, 157); width:40vw; height: 6vw; position: absolute; left: 5vw; top: 106vw; text-align: center; font-size: 3.5vw; color: white; box-shadow: 0 0 1vw rgba(0,0,0,0.5); z-index: 1;"><p style = "margin-top:0.4vw"> Комментарии ({{ numberOfComments }})</p></div>
               <div style = "width:90vw; height: 62vw; position: absolute; top: 114vw; background-color: rgb(201, 201, 201); font-size: 2vw; overflow-y: scroll; overflow-x: hidden;"><!-- Секция комментариев-->
 
 
                 <!-- Это блок комментария (начало) -->
-                  {% if not products.0.comments.all %}
-                      <div style="width:30vw; height: 4vw; position: relative; left: 3.0vw; top: 3vw; outline: none; border: none;">
-                          <button class="button-old" style="background-color: rgb(43, 220, 255); width:30vw; height: 6vw; position: relative; left:2.0vw; top: 1.0vw"><a href="{% url 'comment' products.0.id %}" style="font-size: 2.0vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: center; left: 0vw; top: 1.2vw;">Leave a Comment First</a></button>
-                      </div>
-                      {% else %}
-                      <button class="button-old" style="background-color: rgb(43, 220, 255); width:22vw; height: 6vw; position: relative; left:2.0vw; top: 1.0vw"><a href="{% url 'comment' products.0.id %}" style="font-size: 2.0vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: center; left: 0vw; top: 1.2vw;">Leave a Comment</a></button>
-                      {% for comment in products.0.comments.all %}
+                {% if not products.0.comments.all %}
+              <a href="{% url 'comment' products.0.id %}" ><button class="button-old" style="background-color: rgb(0, 79, 95); width:90vw; height: 6vw; position: relative; left:0vw; top: 0vw; z-index: 1000; border: none; outline: none; box-shadow: 0 0 1vw rgba(0,0,0,0.5); color:white">Leave a Comment First</button></a>
+                 
+              {% else %}
+              <button class="button-old" style="background-color: rgb(43, 220, 255); width:90vw; height: 6vw; position: relative; left:0vw; top: 0vw; z-index: 1000; border: none; outline: none; box-shadow: 0 0 1vw rgba(0,0,0,0.5);"><a href="{% url 'comment' products.0.id %}" style="font-size: 2.0vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: center; left: 0vw; top: 1.2vw;">Leave a Comment</a></button>
+                  
+                  {% for comment in products.0.comments.all %}
                           <div style="background-color: rgb(255, 255, 255); width:70vw; height: 21vw; position: relative; left: 0vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.8vw rgba(0,0,0,0.5);">
-                              <div style = " width: 6vw; height: 6vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 5vw; height: 5vw; position: relative; top: 0.5vw; left: 0.5vw;" src ="https://sun9-19.userapi.com/impg/XbtglT2F1Fd9TzPfADUA8N6M2VF9zv-N9OwyVg/OYrfNutwS1M.jpg?size=2000x2000&quality=96&sign=e76db4d30b878acee8198e28527060b9&type=album" ></div>
+                              <div style = " width: 6vw; height: 6vw; position: relative; top: 1vw; left: 1vw; background-color:rgb(11, 122, 157);"><img style = "width: 5vw; height: 5vw; position: relative; top: 0.5vw; left: 0.5vw;" src ="/static/Resourses/{{ request.user.customer.image }}" ></div>
 
                               <div style = " width:20vw; height: 3vw; position: relative; background-color: rgb(11, 122, 157); top: -4vw; left: 7.5vw;"><p style = "margin-top:0.4vw; padding-left:0.7vw; font-size: 2vw; color: rgb(255, 255, 255);">
                                   {{ comment.username }}</p></div>
@@ -105,16 +115,16 @@
                               </div>
                               <div style=" width:70vw; height: 20vw; position: relative; left: 0vw; top: -6vw; left: 2vw; color: rgb(107, 107, 107);">
                                   <div style = "background-color: rgb(198, 219, 236); width:68vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: -1vw; top: -1.5vw"></div>
-                                  <div style = " width:68vw;  position: relative; top: -1vw; left: -1vw;"><p style = "padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84); white-space: normal; line-height: 1.2">{{ comment.body }}</p></div>
+                                  <div style = " width:68vw; height: 10.5vw; position: relative; top: -1vw; left: -1vw; overflow-y: scroll; overflow-x: hidden;"><p style = "padding-left:0.7vw; font-size: 2vw; color: rgb(12, 34, 84); white-space: normal; line-height: 1.2">{{ comment.body }}</p></div>
 
                                   <div style = "background-color: rgb(198, 219, 236); width:68vw; height: 0.2vw; position: relative; border-radius: 0.3vw; left: -1vw; top: -1vw"></div>
 
                                   {% if comment.username == user.username %}
-                                      <div style="width:6vw; height: 3vw; position: relative; right: 16.2vw; top: 3vw; outline: none; border: none;">
-                                        <button class="button-old" style="background-color: rgb(43, 220, 255); width:6vw; height: 3vw; position: relative; left:15vw; top: 1.0vw">
-                                            <a href="{% url 'delete_comment' comment.id %}" style="font-size: 1.5vw; color: rgb(11, 122, 157); white-space: nowrap; font-weight: bold; position: center; left: 0vw; top: 1.2vw;">Delete</a>
-                                        </button>
-                                      </div>
+                                    
+                                        <a href="{% url 'delete_comment' comment.id %}" ><button class = "button-old"style = "background-color: rgb(255, 91, 73); width:5vw; height: 21vw; position: relative; top: -20.7vw; left: 70vw; outline: none; border: none; box-shadow: 0 0 0.8vw rgba(0,0,0,0.5);" ><img  src ="/static/images/Delete_logo.png" style = " width: 4vw; height: auto; position: relative; top: 0vw; left: 0vw;"></button></a>
+                                    
+                                    
+                                      
                                   {% endif %}
                               </div>
                           </div>
@@ -154,6 +164,71 @@
             </div>
           </div>
 </div>
+
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src = "https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+
+<script>
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(45,1, 0.1, 1000);
+    camera.position.z = 6;
+    camera.position.y = 0;
+    renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+    renderer.setClearColor(0xffffff, 1);
+    renderer.setSize(500, 500);
+
+
+
+
+    renderer.domElement.setAttribute("id", "3DObj");
+    renderer.domElement.setAttribute("style", "position: absolute; z-index: 1000; top: 2.5vw !important; left: 50vw !important; width: 35vw; height: 35vw; border: 2vw solid rgb(11, 122, 157);");
+    let before = document.querySelector('#main');
+    let parent = document.querySelector('#parent_main');
+    parent.insertBefore(renderer.domElement, before);
+
+    const aLight = new THREE.AmbientLight(0x575757, 1);
+
+    scene.add(aLight);
+    const pLight = new THREE.PointLight(0xabfeff, 0.5);
+    pLight.position.set(-10, 5, 10);
+    pLight.castShadow = true;
+    scene.add(pLight);
+
+    const cLight = new THREE.PointLight(0xffffff, 0.7);
+    cLight.position.set(10, 5, 10);
+    cLight.castShadow = true;
+    scene.add(cLight);
+
+    var texture = new THREE.TextureLoader().load( '{{products.0.imageURL}}' );
+    let loader = new THREE.GLTFLoader();
+    
+
+    // immediately use the texture for material creation
+    const material = new THREE.MeshBasicMaterial( { map: texture, refractionRatio: 0.05 } );
+    let obj = null;
+    loader.load('/static/Resourses/Stand.glb', function(gltf){
+        
+        obj = gltf;
+        obj.scene.scale.set(1.3, 1.3, 1.3);
+        scene.add(obj.scene);
+    });
+
+    function animate(){ 
+        requestAnimationFrame(animate);
+
+        if(obj)
+            obj.scene.rotation.y += 0.01;
+        
+        renderer.render(scene, camera);
+    }
+    animate();
+</script>
+
+
+
+
+
+
 <div class = "footer" style = "position: absolute; top: 176.5vw">
     <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
         <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
