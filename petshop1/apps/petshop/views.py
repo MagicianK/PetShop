@@ -111,7 +111,7 @@ def add_comment(request, id):
 
             c = Comment(product=products, username=username, body=body, date_added=datetime.now(), rating=rating)
             c.save()
-            return redirect('/')
+            return redirect('buy', id=id)
         else:
             print('Invalid Form')
     else:
@@ -121,8 +121,9 @@ def add_comment(request, id):
 
 def delete_comment(request, id):
     comment = Comment.objects.get(id=id)
+    productID = comment.product.id
     comment.delete()
-    return redirect('/')
+    return redirect('buy', id=productID)
 
 
 def search(request):
@@ -158,7 +159,7 @@ def edit_account_page(request, id):
         form = CustomerForm(request.POST, request.FILES, instance=customer)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('mypage', id=id)
 
     context = {
         'form': form,
