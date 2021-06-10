@@ -54,7 +54,9 @@
 
         <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 55vw">
             <a href = "{% url 'edit' request.user.id %}"><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Settings</p></div></a>
-            <a href = "https://vk.com/"><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Бонусы</p></div></a>
+            {% if request.user.is_superuser %}
+                <a href = "/admin/"><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Admin Page</p></div></a>
+            {% endif %}
             <a href = "{% url 'logout' %}?next=/loggedout "><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Выйти</p></div></a>
 
         </div>
