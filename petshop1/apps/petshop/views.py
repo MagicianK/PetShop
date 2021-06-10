@@ -10,8 +10,6 @@ from django.contrib import messages
 from django.http import JsonResponse
 from datetime import datetime
 import json
-import datetime
-
 
 def search_by_stats(request):
     products = Product.objects.all()
@@ -153,7 +151,8 @@ def load_account_page(request, id):
 
 @login_required(login_url='login')
 def edit_account_page(request, id):
-    customer = Customer.objects.get(id=id)
+    user = User.objects.get(id=id)
+    customer = Customer.objects.get(id=user.id)
     form = CustomerForm(instance=customer)
     if request.method == 'POST':
         form = CustomerForm(request.POST, request.FILES, instance=customer)
