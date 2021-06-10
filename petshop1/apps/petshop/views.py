@@ -155,7 +155,7 @@ def edit_account_page(request, id):
     customer = Customer.objects.get(id=id)
     form = CustomerForm(instance=customer)
     if request.method == 'POST':
-        form = CustomerForm(request.POST, instance=customer)
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
         if form.is_valid():
             form.save()
             return redirect('/')

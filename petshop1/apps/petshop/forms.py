@@ -32,6 +32,6 @@ class CustomerForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'text-input'}),
             'telephone': forms.TextInput(attrs={'class': 'text-input'}),
-            'image': forms.FileInput
+            'image': forms.ClearableFileInput()
         }
 

@@ -10,11 +10,9 @@
             </div>
             {% else %}
             <div style="background-color: rgb(11, 122, 157); width:32vw; height: 32vw; display: block; margin: 2vw; z-index: 1; position: absolute; top: 1.5vw; left: 1.5vw">
-                <img src ="{{ request.user.customer.image }}" style = " width: 30vw; height: 30vw; position: relative; top: 1vw; left: 1vw;">
+                <img src ="/static/Resourses/{{ request.user.customer.image }}" style = " width: 30vw; height: 30vw; position: relative; top: 1vw; left: 1vw;">
             </div>
-            {{ request.user.customer.image }}
         {% endif %}
-
         <div style = "background-color: rgb(198, 219, 236); width:47.3vw; height: 0.45vw; position: absolute; border-radius: 0.3vw; top: 5vw; left: 39vw"></div>
         <div style = " width:40.3vw; height: 6vw; position: absolute; border-radius: 0.3vw; top: 5vw; left: 39vw"><p style = "margin-top:1.95vw; margin-left: 1vw; font-size: 2.5vw; color: rgb(12, 34, 84);">Username:</p></div>
         <div style = "background-color: rgb(198, 219, 236); width:0.45vw; height: 5vw; position: absolute; border-radius: 0.3vw; top: 6.2vw; left: 56vw"></div>
