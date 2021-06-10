@@ -79,6 +79,7 @@ class Product(models.Model):
     classification = models.ForeignKey(Classification, on_delete=models.CASCADE)
     availability = models.CharField('availability of product', max_length=20, choices=choicesavail)
     novelty = models.DateTimeField(auto_now_add=True)
+    path3D = models.CharField('path dor 3D', max_length=50, null=True, blank=True)
 
     @property
     def imageURL(self):
