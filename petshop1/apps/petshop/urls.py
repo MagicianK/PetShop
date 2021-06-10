@@ -21,4 +21,5 @@ urlpatterns = [
     path('search/search_by_stats/price_desc/', views.product_price_desc, name='price_desc'),
     path('search/search_by_stats/novelty/', views.product_novelty, name='novelty'),
     path('processOrder/', views.processOrder, name='processOrder'),
+    path('current_orders/', views.currentOrders, name='currentOrders'),
 ]

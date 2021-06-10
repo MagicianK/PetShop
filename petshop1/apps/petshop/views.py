@@ -11,6 +11,7 @@ from django.http import JsonResponse
 from datetime import datetime
 import json
 
+
 def search_by_stats(request):
     products = Product.objects.all()
 
@@ -282,4 +283,5 @@ def processOrder(request):
         )
     else:
         print('User is not logged in')
+
     return JsonResponse('Payment complete!', safe=False)
