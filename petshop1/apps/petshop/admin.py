@@ -10,9 +10,6 @@ def createUser(request):
     return render(request, 'registration/register.html')
 
 
-admin.site.register(Brand)
-admin.site.register(Animal)
-admin.site.register(Classification)
 admin.site.register(Product)
 admin.site.register(Order)
 admin.site.register(OrderItem)

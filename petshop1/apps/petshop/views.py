@@ -109,8 +109,9 @@ def add_comment(request, id):
             username = request.user.username
             body = form.cleaned_data['body']
             rating = form.cleaned_data['rating']
+            customer = request.user.customer
 
-            c = Comment(product=products, username=username, body=body, date_added=datetime.now(), rating=rating)
+            c = Comment(product=products, username=username, body=body, date_added=datetime.now(), rating=rating, customer=customer)
             c.save()
             return redirect('buy', id=id)
         else:

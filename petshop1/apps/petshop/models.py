@@ -29,54 +29,22 @@ choicesclass = (
         ('Toy', 'Toy'),
         ('Accessories', 'Accessories')
 )
-
-
-class Brand(models.Model):
-
-    name = models.CharField('brand of the product', max_length=50, choices=choicesbrand)
-
-    class Meta:
-        verbose_name_plural = "brands"
-
-    def __str__(self):
-        return self.name
-
-
-class Animal(models.Model):
-    name = models.CharField('animal species of the product', max_length=50, choices=choicesanimal)
-
-    class Meta:
-        verbose_name_plural = "animals"
-
-    def __str__(self):
-        return self.name
-
-
-class Classification(models.Model):
-    name = models.CharField('type of product', max_length=50, choices=choicesclass)
-
-    class Meta:
-        verbose_name_plural = "classifications"
-
-    def __str__(self):
-        return self.name
-
-
-class Product(models.Model):
-    choicesavail = (
+choicesavail = (
         ('Yes', 'Yes'),
         ('In other city', 'In other city'),
         ('Expected', 'Expected'),
-    )
+)
 
+
+class Product(models.Model):
     name = models.CharField('name of product', max_length=50)
     image = models.ImageField('url for picture of product', null=True, blank=True)
     description = models.TextField('description of product')
     rating = models.IntegerField('rating', default=0, validators=[MaxValueValidator(5), MinValueValidator(0)])
     price = models.IntegerField('price', default=0, validators=[MinValueValidator(0)])
-    brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
-    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    classification = models.ForeignKey(Classification, on_delete=models.CASCADE)
+    brand = models.CharField('brand name', max_length=50, choices=choicesbrand)
+    animal = models.CharField('animal', max_length=50, choices=choicesanimal)
+    classification = models.CharField('classification', max_length=50, choices=choicesclass)
     availability = models.CharField('availability of product', max_length=20, choices=choicesavail)
     novelty = models.DateTimeField(auto_now_add=True)
     path3D = models.CharField('path dor 3D', max_length=50, null=True, blank=True)
@@ -111,11 +79,6 @@ class ProductFilter(django_filters.FilterSet):
         (3, 'Three'),
         (4, 'Four'),
         (5, 'Five'),
-    )
-    choicesavail = (
-        ('Yes', 'Yes'),
-        ('In other city', 'In other city'),
-        ('Expected', 'Expected'),
     )
 
     name = django_filters.CharFilter(lookup_expr='iexact')
@@ -193,6 +156,7 @@ class ShippingAddress(models.Model):
 
 class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="comments")
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     username = models.CharField(max_length=50)
     body = models.TextField()
     date_added = models.DateField(auto_now_add=True)
