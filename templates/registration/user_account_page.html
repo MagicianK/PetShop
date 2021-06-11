@@ -48,9 +48,9 @@
 
         <div style = "display: flex; justify-content: center; align-items: center; width: 90vw; position: absolute; top: 37vw">
             
-            <a href = "{% url 'cart' %}"><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Корзина</p></div></a>
+            <a href = "{% url 'cart' %}"><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Cart</p></div></a>
             <a href = "{% url 'edit' request.user.id %}"><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Settings</p></div></a>
-            <a href = "{% url 'logout' %}?next=/loggedout "><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Выйти</p></div></a>
+            <a href = "{% url 'logout' %}?next=/loggedout "><div class ="button-old" style="background-color: rgb(11, 122, 157); width:25vw; height: 15vw; display: block; margin: 2vw; z-index: 1; color: white; text-align: center; font-size: 3vw;"><p style = "padding-top: 5.5vw; white-space: nowrap;">Log out</p></div></a>
 
         
         </div>
@@ -65,24 +65,16 @@
 </div>
 
 <div class = "footer" style = "position: absolute; top:77vw">
-    <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-        <p style = "display: block;margin: 2vw;"> Контакты </p>
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-        <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-        <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+     <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
+         <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+         <p style = "display: block;margin: 2vw;"> Contacts: </p>
+         <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+         <p style = "display: block;margin: 2vw;"><a href="tel:87081134598" style="color: white"> +7 708 113 45 98 </a></p>
+         <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+         <p style = "display: block;margin: 2vw;"> Mangilik El, C1 – Nur-Sultan, Kazakhstan </p>
+         <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
 
-    </div>
-    <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 3.5vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-        <p style = "display: block;margin: 2vw;">FAQ</p>
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-        <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-        <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
-        <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-    </div>
+     </div>
+
 </div>
 {% endblock %}
