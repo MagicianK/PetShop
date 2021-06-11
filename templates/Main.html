@@ -43,10 +43,6 @@
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             <p style = "display: block;margin: 2vw; white-space: nowrap;" class = "button-text">Доставка</p>
             <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-            <p style = "display: block;margin: 2vw; white-space: nowrap;" class = "button-text">Оплата</p>
-            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-            <p style = "display: block;margin: 2vw; white-space: nowrap;" class = "button-text">Гарантии, обмен и возврат</p>
-            <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             {% if user.is_authenticated %}
                  <a class = "a-old" href="{% url 'mypage' user.id %}"><p style = "display: block;margin: 2vw; white-space: nowrap;" class = "button-text">Личный кабинет</p></a>
                  <div style = "background-color: rgb(198, 219, 236); width:4px; height: 3.5vw; border-radius: 2px;"></div>
@@ -154,11 +150,11 @@
         <div class = "footer">
             <div style = "background-color: rgb(11, 122, 157); width:100%; height: 4.5vw; position: relative; top: 2vw; display: flex; justify-content: center; align-items: center; font-size: 1.7vw; color: white;">
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-                <p style = "display: block;margin: 2vw;"> Контакты </p>
+                <p style = "display: block;margin: 2vw;"> Contacts: </p>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-                <p style = "display: block;margin: 2vw;"> +7 708 113 45 98 </p>
+                <p style = "display: block;margin: 2vw;"><a href="tel:87081134598" style="color: white"> +7 708 113 45 98 </a></p>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-                <p style = "display: block;margin: 2vw;"> *Some Adress of shop* </p>
+                <p style = "display: block;margin: 2vw;"> Mangilik El, C1 – Nur-Sultan, Kazakhstan </p>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
 
             </div>
@@ -166,9 +162,18 @@
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
                 <p style = "display: block;margin: 2vw;">FAQ</p>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-                <p style = "display: block;margin: 2vw;">Мы в социальных сетях:</p>
+                <p style = "display: block;margin: 2vw;">We are in social media:</p>
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
-                <p style = "display: block;margin: 2vw;">*Some Adress of shop* </p>
+                <p style = "display: block;margin: 2vw;">
+                    <a href="https://t.me/aitu2020info"><img src="/static/Resourses/logo/telegram.svg" style="width: 2vw;"></a>
+                </p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">
+                    <a href="https://wa.me/87017050582"><img src="/static/Resourses/logo/whatsapp.svg" style="width: 2vw;"></a></p>
+                <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
+                <p style = "display: block;margin: 2vw;">
+                    <a href="instagram.com"><img src="/static/Resourses/logo/insta.svg" style="width: 2vw;"></a></p>
+
                 <div style = "background-color: rgb(0, 155, 192); width:4px; height: 3.5vw; border-radius: 2px;"></div>
             </div>
         </div>
