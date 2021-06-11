@@ -2,11 +2,17 @@
 {% load static %}
 {% block stuff %} {% endblock %}
 {% block content %}
-    <form method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
-        <div style="background-color: rgb(255, 255, 255); width:80vw; height: 40vw; position: relative; left: 0vw; top: 2vw; font-size: 1.5vw; color: white; white-space: nowrap; margin: 2vw; box-shadow: 0 0 0.8vw rgba(0,0,0,0.5);">
-
-            {{ form.as_p}}
-            <button type="submit">Submit</button>
-        </div>
+<div class = "main" style = "height: 20vw">
+    <form method="POST" action="" enctype="multipart/form-data" style = "position: absolute; top:1.5vw; font-size: 2vw;">
+        {% csrf_token %}
+        <div style = "position: absolute; top: 3vw; left:2vw; height: 4vw; width: 26vw; background-color: rgb(11, 122, 157); padding-top: 0.4vw; text-align: center; color: white">Name</div>
+        <div style = "position: absolute; top: 3vw; left:31vw; height: 4vw; width: 26vw; background-color: rgb(11, 122, 157); padding-top: 0.4vw; text-align: center; color: white">Telephone</div>
+        <div style = "position: absolute; top: 3vw; left:60vw; height: 4vw; width: 28vw; background-color: rgb(11, 122, 157); padding-top: 0.4vw; text-align: center; color: white">Profile image</div>
+            {{ form.name}}
+            {{ form.telephone}}
+            {{ form.image}}
+            <button type="submit" class = "button-old" style = "color: white; position: absolute; top: 12.8vw; left: 2vw; background-color: rgb(43, 220, 255); width:86vw; height: 4vw; z-index: 1000; border: none; outline: none; ">Submit</button>
+        
     </form>
+</div>
 {% endblock %}
